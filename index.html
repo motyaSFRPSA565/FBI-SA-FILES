@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Федеральное Бюро Расследований | Доступ ограничен</title>
+    <style>
+        /* Сбрасываем стандартные отступы */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial Narrow', Arial, 'Helvetica Condensed', Helvetica, sans-serif;
+        }
+
+        body {
+            background-color: #0a0a0a; /* Глубокий черный фон */
+            color: #e0e0e0; /* Светло-серый текст */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 20px;
+            background-image: 
+                linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+            background-size: 40px 40px; /* Сетка как на мониторах слежения */
+        }
+
+        /* Главный контейнер с эффектом "монитора" */
+        .fbi-terminal {
+            max-width: 1200px;
+            width: 100%;
+            border: 2px solid #333;
+            padding: 30px;
+            background-color: #111;
+            box-shadow: 0 0 30px rgba(255, 0, 0, 0.2); /* Легкое красное свечение */
+            position: relative;
+        }
+
+        /* Верхняя полоса с "секретно" */
+        .classified-header {
+            border-bottom: 1px solid #ff0000;
+            margin-bottom: 25px;
+            padding-bottom: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            text-transform: uppercase;
+            font-weight: bold;
+            color: #ff5e5e;
+            letter-spacing: 3px;
+            font-size: 14px;
+        }
+
+        .classified-header .left {
+            background-color: #ff0000;
+            color: black;
+            padding: 5px 15px;
+            font-size: 20px;
+            clip-path: polygon(10% 0%, 100% 0%, 90% 100%, 0% 100%); /* Скошенный край как нашивка */
+        }
+
+        /* Основной логотип */
+        .fbi-seal {
+            text-align: center;
+            margin-bottom: 30px;
+            position: relative;
+        }
+
+        .fbi-seal h1 {
+            font-size: 80px;
+            letter-spacing: 15px;
+            color: white;
+            text-shadow: 0 0 10px rgba(0, 153, 255, 0.5);
+            font-weight: 900;
+            line-height: 1;
+        }
+
+        .fbi-seal p {
+            font-size: 18px;
+            letter-spacing: 8px;
+            word-spacing: 15px;
+            color: #aaa;
+            border-top: 1px solid #333;
+            border-bottom: 1px solid #333;
+            padding: 10px 0;
+            margin: 10px auto;
+            width: 70%;
+        }
+
+        /* Навигация (вкладки) */
+        .case-nav {
+            display: flex;
+            border-bottom: 2px solid #222;
+            margin-bottom: 30px;
+            gap: 5px;
+        }
+
+        .case-nav a {
+            padding: 12px 25px;
+            background-color: #1a1a1a;
+            color: #aaa;
+            text-decoration: none;
+            text-transform: uppercase;
+            font-weight: bold;
+            letter-spacing: 1px;
+            border: 1px solid #2a2a2a;
+            border-bottom: none;
+            transition: 0.2s;
+            font-size: 14px;
+        }
+
+        .case-nav a.active {
+            background-color: #222;
+            color: #ffcccc;
+            border-color: #8b0000;
+            border-bottom: 2px solid #8b0000;
+            margin-bottom: -2px;
+        }
+
+        .case-nav a:hover:not(.active) {
+            background-color: #2a2a2a;
+            color: white;
+        }
+
+        /* Сетка для контента */
+        .content-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+
+        /* Карточка объекта / досье */
+        .case-file {
+            background-color: #0d0d0d;
+            border-left: 5px solid #8b0000;
+            padding: 20px;
+            border-radius: 0 8px 8px 0;
+            box-shadow: inset 0 0 10px #000;
+        }
+
+        .case-file h2 {
+            font-size: 28px;
+            color: white;
+            margin-bottom: 10px;
+            border-bottom: 1px dashed #444;
+            padding-bottom: 5px;
+        }
+
+        .case-meta {
+            display: grid;
+            grid-template-columns: 100px 1fr;
+            gap: 8px;
+            font-size: 16px;
+            margin-bottom: 15px;
+        }
+
+        .case-meta .label {
+            color: #8b8b8b;
+            text-transform: uppercase;
+            font-weight: bold;
+        }
+        .case-meta .value {
+            color: white;
+            font-family: 'Courier New', monospace;
+        }
+
+        /* Список активных заказов (как в Payday 2) */
+        .active-orders {
+            background-color: #050505;
+            border: 1px solid #330000;
+            padding: 20px;
+        }
+
+        .active-orders h3 {
+            color: #ff4d4d;
+            margin-bottom: 20px;
+            font-size: 22px;
+            text-transform: uppercase;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .order-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 12px 0;
+            border-bottom: 1px solid #1a1a1a;
+            font-size: 18px;
+        }
+        .order-item .status {
+            color: #ffaa00;
+            font-weight: bold;
+        }
+        .order-item .status.hot {
+            color: #ff0000;
+        }
+
+        /* Нижняя панель (нашивки) */
+        .badges {
+            margin-top: 40px;
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            border-top: 1px solid #222;
+            padding-top: 20px;
+        }
+
+        .badge {
+            background-color: #1a1a1a;
+            color: #ccc;
+            padding: 8px 18px;
+            clip-path: polygon(10% 0%, 90% 0%, 100% 50%, 90% 100%, 10% 100%, 0% 50%);
+            font-size: 12px;
+            letter-spacing: 2px;
+            border: 1px solid #3a3a3a;
+        }
+
+        /* Секция "Последние данные" */
+        .live-feed {
+            background: #000;
+            padding: 15px;
+            font-family: 'Courier New', monospace;
+            border: 1px solid #3a3a3a;
+            color: #0f0;
+            font-size: 14px;
+            max-height: 150px;
+            overflow-y: scroll;
+        }
+
+        .live-feed p {
+            margin: 5px 0;
+            border-bottom: 1px dotted #1a4d1a;
+            padding-bottom: 3px;
+        }
+
+        /* Футер */
+        .footer-warning {
+            text-align: center;
+            margin-top: 30px;
+            color: #4a4a4a;
+            font-size: 12px;
+            text-transform: uppercase;
+            border-top: 1px solid #1a1a1a;
+            padding-top: 20px;
+        }
+
+        .footer-warning span {
+            color: #8b0000;
+            font-weight: bold;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="fbi-terminal">
+
+        <!-- Шапка с грифом -->
+        <div class="classified-header">
+            <div class="left">ЗАСЕКРЕЧЕНО</div>
+            <div>Допуск: ТОЛЬКО ДЛЯ ПРАВООХРАНИТЕЛЬНЫХ ОРГАНОВ // УРОВЕНЬ 4</div>
+        </div>
+
+        <!-- Печать ФБР -->
+        <div class="fbi-seal">
+            <h1>F·B·I</h1>
+            <p>ФЕДЕРАЛЬНОЕ БЮРО РАССЛЕДОВАНИЙ</p>
+        </div>
+
+        <!-- Меню (имитация вкладок с делами) -->
+        <div class="case-nav">
+            <a href="#" class="active">Активные дела</a>
+            <a href="#">Розыск</a>
+            <a href="#">Архив Payday</a>
+            <a href="#">Агенты</a>
+            <a href="#">Тревога</a>
+        </div>
+
+        <!-- Основная сетка -->
+        <div class="content-grid">
+            <!-- Досье на подозреваемого (как в PAYDAY 2, когда показывают цели) -->
+            <div class="case-file">
+                <h2>ДОСЬЕ: ОПЕРАЦИЯ "ПЕРЕГРУЗКА"</h2>
+                <div class="case-meta">
+                    <span class="label">Статус:</span>
+                    <span class="value" style="color: #ff5e5e;">КРИТИЧЕСКИЙ (ГОРЯЧАЯ ЗОНА)</span>
+                    
+                    <span class="label">Цель #1:</span>
+                    <span class="value">Даллас / ШШ</span>
+                    
+                    <span class="label">Цель #2:</span>
+                    <span class="value">Хокстон / Взлом</span>
+
+                    <span class="label">Последнее место:</span>
+                    <span class="value">First World Bank</span>
+
+                    <span class="label">Вооружение:</span>
+                    <span class="value">Автоматическое / Тяжелая броня</span>
+                </div>
+                <p style="color: #aaa; font-style: italic;">Группа ассоциируется с серией ограблений. Подходить с осторожностью. Считаются вооруженными и чрезвычайно опасными.</p>
+                <div style="margin-top: 15px; background: #1a0000; padding: 5px; text-align: center; border: 1px solid #8b0000;">
+                    ⚠️ ПРИКАЗ: ЗАДЕРЖАТЬ ЛЮБОЙ ЦЕНОЙ ⚠️
+                </div>
+            </div>
+
+            <!-- Активные приказы (очки контрактов) -->
+            <div class="active-orders">
+                <h3>⚡ АКТИВНЫЕ ОПЕРАЦИИ</h3>
+                <div class="order-item">
+                    <span>First World Bank</span>
+                    <span class="status hot">★ Срочно ★</span>
+                </div>
+                <div class="order-item">
+                    <span>Убежище на Бенсон-стрит</span>
+                    <span class="status">Оцепление</span>
+                </div>
+                <div class="order-item">
+                    <span>Бриллиантовая шахта</span>
+                    <span class="status">Под наблюдением</span>
+                </div>
+                <div class="order-item">
+                    <span>Белый дом (Восток)</span>
+                    <span class="status">Ложная тревога</span>
+                </div>
+                <div class="order-item">
+                    <span>Шоссе 42, блокпост</span>
+                    <span class="status hot">★ Перестрелка ★</span>
+                </div>
+
+                <!-- Счетчик времени (для атмосферы) -->
+                <div style="margin-top: 30px; background: black; padding: 15px; border: 1px solid #333;">
+                    <p style="display: flex; justify-content: space-between;">
+                        <span>ПРОНИКНОВЕНИЕ В БАЗУ ДАННЫХ:</span>
+                        <span style="color: #0f0;">ЗАЩИТА АКТИВНА</span>
+                    </p>
+                    <p style="display: flex; justify-content: space-between;">
+                        <span>ПОСЛЕДНЕЕ ОБНОВЛЕНИЕ:</span>
+                        <span style="color: #ff0;">02.03.2026 / 04:48</span>
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Лента данных (как в играх, чтобы показать "активность") -->
+        <div class="live-feed">
+            <p>[CAPTAIN] Отряд быстрого реагирования выдвинут на координаты 42.3242, -71.342</p>
+            <p>[SYS] Декодирование каналов связи... Успешно</p>
+            <p>[INTEL] Подтверждено использование маски "Хокстон"</p>
+            <p>[ALERT] Зафиксирована детонация C4 в районе банка</p>
+            <p>[CMD] Всем постам: повысить готовность до "Красный код"</p>
+        </div>
+
+        <!-- Нашивки / отделы -->
+        <div class="badges">
+            <div class="badge">ОТДЕЛ ПО БОРЬБЕ С ТЕРРОРИЗМОМ</div>
+            <div class="badge">КОМАНДА SWAT</div>
+            <div class="badge">КРИМИНАЛЬНАЯ РАЗВЕДКА</div>
+            <div class="badge">ЗАСЕКРЕЧЕНО</div>
+        </div>
+
+        <!-- Футер с предупреждением -->
+        <div class="footer-warning">
+            <span>ЛЮБАЯ УТЕЧКА ИНФОРМАЦИИ ПРЕСЛЕДУЕТСЯ ПО ЗАКОНУ</span> || Доступ строго по пропускам. Версия базы: PAYDAY 2 (RP)
+        </div>
+
+    </div>
+</body>
+</html>
