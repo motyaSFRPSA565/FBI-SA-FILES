@@ -123,7 +123,7 @@
             color: white;
         }
 
-        /* КНОПКА ТРЕВОГИ (ОТДЕЛЬНО) */
+        /* КНОПКА ТРЕВОГИ */
         .alert-button-container {
             display: flex;
             justify-content: flex-end;
@@ -565,8 +565,6 @@
             <button class="alert-nav-btn" onclick="switchPage('alert', this)">🚨 ТРЕВОГА 🚨</button>
         </div>
 
-        <!-- СТРАНИЦЫ -->
-
         <!-- Активные дела -->
         <div id="page-active" class="page active-page">
             <div class="content-grid">
@@ -674,4 +672,149 @@
                 <h2 style="color: white; margin-bottom: 20px;">📁 АРХИВ ОПЕРАЦИЙ PAYDAY</h2>
                 <div class="archive-item">
                     <div style="font-size: 20px; color: white;">First World Bank</div>
-                    <div style="color: #888;">Дата
+                    <div style="color: #888;">Дата: 12.03.2025 | Ущерб: $8.2M</div>
+                </div>
+                <div class="archive-item">
+                    <div style="font-size: 20px; color: white;">Бриллиантовая шахта</div>
+                    <div style="color: #888;">Дата: 27.02.2025 | Ущерб: $12.5M</div>
+                </div>
+                <div class="archive-item">
+                    <div style="font-size: 20px; color: white;">Ограбление Нацбанка</div>
+                    <div style="color: #888;">Дата: 05.01.2025 | Ущерб: $5.7M</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Терроризм -->
+        <div id="page-terror" class="page">
+            <h2 style="color: white; margin-bottom: 20px;">💣 ОТДЕЛ ПО БОРЬБЕ С ТЕРРОРИЗМОМ</h2>
+            <div class="terror-grid">
+                <div class="terror-card">
+                    <h3>УРОВЕНЬ УГРОЗЫ</h3>
+                    <div style="font-size: 48px; color: #ff0000; text-align: center;">КРАСНЫЙ</div>
+                </div>
+                <div class="terror-card">
+                    <h3>АКТИВНЫЕ ЯЧЕЙКИ</h3>
+                    <div style="font-size: 48px; color: #ffaa00; text-align: center;">3</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SWAT -->
+        <div id="page-swat" class="page">
+            <div class="swat-panel">
+                <h2 style="color: #ffaa00;">🚨 SWAT TEAM</h2>
+                <button class="swat-button" onclick="alert('🚨 ПОДКРЕПЛЕНИЕ ВЫЗВАНО! ОТРЯД SWAT ВЫЕХАЛ!')">
+                    ВЫЗВАТЬ SWAT
+                </button>
+            </div>
+        </div>
+
+        <!-- Разведка -->
+        <div id="page-intel" class="page">
+            <h2 style="color: white; margin-bottom: 20px;">🕵️ КРИМИНАЛЬНАЯ РАЗВЕДКА</h2>
+            <div class="intel-grid">
+                <div class="intel-card">
+                    <h3>БАНДА PAYDAY</h3>
+                    <p>Активность: ВЫСОКАЯ</p>
+                </div>
+                <div class="intel-card">
+                    <h3>РУССКАЯ МАФИЯ</h3>
+                    <p>Активность: СРЕДНЯЯ</p>
+                </div>
+                <div class="intel-card">
+                    <h3>КОЛУМБИЙСКИЙ КАРТЕЛЬ</h3>
+                    <p>Активность: НИЗКАЯ</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- ЗАСЕКРЕЧЕНО - МАЙК МАЛЛАС -->
+        <div id="page-malasa" class="page" style="position: relative;">
+            <div class="classified-stamp">СЕКРЕТНО</div>
+            <div class="malasa-dossier">
+                <div class="malasa-photo">
+                    <img src="editing_result_224b0bbd134011f19a08e676f5c8961e_1.jpg" alt="Mike Mallasa" onerror="this.style.display='none'; this.parentElement.innerHTML='👤';">
+                </div>
+                <div class="malasa-info">
+                    <h2>⚡ МАЙК МАЛЛАС ⚡</h2>
+                    
+                    <div class="malasa-field">
+                        <div class="label">ФАМИЛИЯ ИМЯ</div>
+                        <div class="value">Маллас Майкл [ТВОЙ ТЕКСТ]</div>
+                    </div>
+
+                    <div class="malasa-field">
+                        <div class="label">ДОЛЖНОСТЬ</div>
+                        <div class="value">Директор Федерального Бюро Расследований</div>
+                    </div>
+
+                    <div class="malasa-field">
+                        <div class="label">ДОПУСК</div>
+                        <div class="value" style="color: #ff0000;">УРОВЕНЬ 5 (МАКСИМАЛЬНЫЙ)</div>
+                    </div>
+
+                    <div class="malasa-field">
+                        <div class="label">ОПИСАНИЕ</div>
+                        <div class="value" style="font-size: 16px; color: #aaa;">
+                            [ВСТАВЬ СВОЁ ОПИСАНИЕ ПЕРСОНАЖА]
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Тревога -->
+        <div id="page-alert" class="page">
+            <div class="alert-page">
+                <h1 style="color: #ff0000; font-size: 48px;">🚨 RED ALERT 🚨</h1>
+                <p style="color: white; font-size: 24px;">ПРОИСШЕСТВИЕ НА FIRST WORLD BANK</p>
+            </div>
+        </div>
+
+        <!-- Лента -->
+        <div class="live-feed">
+            <p>[CAPTAIN] Отряд быстрого реагирования выдвинут на координаты 42.3242, -71.342</p>
+            <p>[INTEL] Подтверждено использование маски "Хокстон"</p>
+            <p>[ALERT] Зафиксирована детонация C4 в районе банка</p>
+            <p>[CMD] Всем постам: повысить готовность до "Красный код"</p>
+        </div>
+
+        <!-- НИЖНИЕ НАШИВКИ (КЛИКАБЕЛЬНЫЕ) -->
+        <div class="badges">
+            <div class="badge" onclick="switchPage('terror')">ОТДЕЛ ПО БОРЬБЕ С ТЕРРОРИЗМОМ</div>
+            <div class="badge" onclick="switchPage('swat')">КОМАНДА SWAT</div>
+            <div class="badge" onclick="switchPage('intel')">КРИМИНАЛЬНАЯ РАЗВЕДКА</div>
+            <div class="badge" onclick="switchPage('malasa')">ЗАСЕКРЕЧЕНО</div>
+        </div>
+
+        <!-- Футер -->
+        <div class="footer-warning">
+            <span>ЛЮБАЯ УТЕЧКА ИНФОРМАЦИИ ПРЕСЛЕДУЕТСЯ ПО ЗАКОНУ</span>
+        </div>
+
+    </div>
+
+    <script>
+        function switchPage(pageName, element) {
+            // Скрываем все страницы
+            document.querySelectorAll('.page').forEach(page => {
+                page.classList.remove('active-page');
+            });
+            
+            // Показываем нужную страницу
+            document.getElementById('page-' + pageName).classList.add('active-page');
+            
+            // Убираем active у всех верхних кнопок
+            document.querySelectorAll('.nav-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            
+            // Если клик по верхней кнопке - активируем её
+            if (element && element.classList.contains('nav-btn')) {
+                element.classList.add('active');
+            }
+        }
+    </script>
+</body>
+</html>
