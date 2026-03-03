@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ФБР | База данных граждан</title>
+    <title>Федеральное Бюро Расследований | Доступ ограничен</title>
     <style>
         * {
             margin: 0;
@@ -835,7 +835,7 @@
                     </div>
                 </div>
 
-                <!-- Правая колонка: БАЗА ДАННЫХ ГРАЖДАН (поиск) -->
+                <!-- Правая колонка: БАЗА ДАННЫХ ГРАЖДАН -->
                 <div class="citizen-database">
                     <h3>🔍 БАЗА ДАННЫХ ГРАЖДАН</h3>
                     <div class="search-box">
@@ -843,71 +843,71 @@
                         <button onclick="searchCitizen()">НАЙТИ</button>
                     </div>
 
-                    <!-- Карточка Глеба Малыхина -->
+                    <!-- Карточка Глеба Малыхина (депутат) -->
                     <div id="citizenGleb" class="citizen-card">
                         <h4>⚡ ГЛЕБ МАЛЫХИН ⚡</h4>
                         <div class="citizen-info">
                             <span class="c-label">ФИО:</span>
                             <span>Малыхин Глеб Дмитриевич</span>
                             <span class="c-label">Дата рождения:</span>
-                            <span>15.08.1990</span>
-                            <span class="c-label">Место рождения:</span>
-                            <span>Лос-Сантос</span>
+                            <span>16.11.1997</span>
+                            <span class="c-label">Должность:</span>
+                            <span>Депутат по социально-трудовым делам</span>
                             <span class="c-label">Статус:</span>
-                            <span style="color: #ffaa00;">ПОД НАБЛЮДЕНИЕМ</span>
+                            <span style="color: #0f0;">ДЕЙСТВУЮЩИЙ</span>
                             <span class="c-label">Примечание:</span>
-                            <span>Связи с русской мафией</span>
+                            <span>Курирует трудовое законодательство</span>
                         </div>
                     </div>
 
-                    <!-- Карточка Von Ravenhorst -->
+                    <!-- Карточка Reginald Von Ravenhorst (агент ФБР) -->
                     <div id="citizenRaven" class="citizen-card">
-                        <h4>⚡ VON RAVENHORST ⚡</h4>
+                        <h4>⚡ REGINALD VON RAVENHORST ⚡</h4>
                         <div class="citizen-info">
                             <span class="c-label">ФИО:</span>
-                            <span>Равенхорст фон Клаус</span>
+                            <span>Равенхорст Реджинальд</span>
                             <span class="c-label">Дата рождения:</span>
-                            <span>03.12.1985</span>
-                            <span class="c-label">Место рождения:</span>
-                            <span>Либерти Сити</span>
+                            <span>05.11.1990</span>
+                            <span class="c-label">Должность:</span>
+                            <span>Специальный агент ФБР</span>
                             <span class="c-label">Статус:</span>
-                            <span style="color: #ff5555;">В РОЗЫСКЕ</span>
+                            <span style="color: #0f0;">ДЕЙСТВУЮЩИЙ</span>
                             <span class="c-label">Примечание:</span>
-                            <span>Международный преступник</span>
+                            <span>Специалист по международным делам</span>
                         </div>
                     </div>
 
-                    <!-- Карточка Ивана Драго (как мэр) -->
+                    <!-- Карточка Ивана Драго (мэр города) -->
                     <div id="citizenDrago" class="citizen-card">
                         <h4>⚡ ИВАН ДРАГО (МЭР) ⚡</h4>
                         <div class="citizen-info">
                             <span class="c-label">ФИО:</span>
                             <span>Драго Иван Петрович</span>
                             <span class="c-label">Дата рождения:</span>
-                            <span>22.07.1978</span>
+                            <span>20.03.1983</span>
                             <span class="c-label">Должность:</span>
                             <span>Мэр Сан-Фиерро</span>
                             <span class="c-label">Статус:</span>
                             <span style="color: #0f0;">ДЕЙСТВУЮЩИЙ</span>
                             <span class="c-label">Примечание:</span>
-                            <span>Бывший военный, связи с правительством</span>
+                            <span>Глава городской администрации</span>
                         </div>
                     </div>
 
-                    <!-- Карточка Майка Маласа (как мэр - прикрытие) -->
+                    <!-- Карточка Майка Маласа (губернатор) -->
                     <div id="citizenMalas" class="citizen-card">
-                        <h4>⚡ МАЙК МАЛАС (МЭР) ⚡</h4>
+                        <h4>⚡ МАЙК МАЛАС (ГУБЕРНАТОР) ⚡</h4>
                         <div class="citizen-info">
                             <span class="c-label">ФИО:</span>
                             <span>Малас Майкл Торено</span>
                             <span class="c-label">Дата рождения:</span>
                             <span>05.03.1995</span>
                             <span class="c-label">Должность:</span>
-                            <span>Мэр Лос-Сантоса / Директор ФБР</span>
+                            <span>Губернатор штата Сан-Андреас</span>
                             <span class="c-label">Статус:</span>
                             <span style="color: #0f0;">ДЕЙСТВУЮЩИЙ</span>
                             <span class="c-label">Примечание:</span>
-                            <span>Информация засекречена</span>
+                            <span>Высшее должностное лицо штата</span>
                         </div>
                     </div>
 
@@ -919,7 +919,7 @@
                 </div>
             </div>
 
-            <!-- Активные операции (оставляем как было) -->
+            <!-- Активные операции -->
             <div class="active-orders" style="margin-top: 20px;">
                 <h3>⚡ АКТИВНЫЕ ОПЕРАЦИИ</h3>
                 <div class="order-item">
@@ -972,15 +972,6 @@
                     </div>
                     <div class="wanted-reward">$3,800,000</div>
                 </div>
-
-                <div class="wanted-item">
-                    <div class="wanted-photo">👤</div>
-                    <div>
-                        <div class="wanted-name">Вулф (Ulrik Andersen)</div>
-                        <div style="color: #888;">Механик, взрывчатка</div>
-                    </div>
-                    <div class="wanted-reward">$3,500,000</div>
-                </div>
             </div>
         </div>
 
@@ -1005,12 +996,6 @@
                     <div class="rank">Координатор</div>
                     <div class="status">⚠️ Слежка</div>
                 </div>
-                <div class="agent-card" onclick="showAgentBio('malas')">
-                    <div class="photo">👮</div>
-                    <h3>Director Malas</h3>
-                    <div class="rank">Директор ФБР</div>
-                    <div class="status">🏢 В кабинете</div>
-                </div>
             </div>
         </div>
 
@@ -1033,15 +1018,10 @@
                     <h3>🏛 Ограбление Нацбанка</h3>
                     <div style="color: #888;">Дата: 05.01.2025 | Ущерб: $5.7M</div>
                 </div>
-                
-                <div class="archive-item" onclick="showArchiveDetail('jewelry')">
-                    <h3>💍 Ювелирный магазин</h3>
-                    <div style="color: #888;">Дата: 18.02.2025 | Ущерб: $3.2M</div>
-                </div>
             </div>
         </div>
 
-        <!-- ОСТАЛЬНЫЕ СТРАНИЦЫ (Терроризм, SWAT, Разведка, Малас, Тревога) -->
+        <!-- Терроризм -->
         <div id="page-terror" class="page">
             <h2 style="color: white; margin-bottom: 20px;">💣 ОТДЕЛ ПО БОРЬБЕ С ТЕРРОРИЗМОМ</h2>
             <div class="terror-grid">
@@ -1056,6 +1036,7 @@
             </div>
         </div>
 
+        <!-- SWAT -->
         <div id="page-swat" class="page">
             <div class="swat-panel">
                 <h2 style="color: #ffaa00;">🚨 SWAT TEAM</h2>
@@ -1065,6 +1046,7 @@
             </div>
         </div>
 
+        <!-- Разведка -->
         <div id="page-intel" class="page">
             <h2 style="color: white; margin-bottom: 20px;">🕵️ КРИМИНАЛЬНАЯ РАЗВЕДКА</h2>
             <div class="intel-grid">
@@ -1083,6 +1065,7 @@
             </div>
         </div>
 
+        <!-- ЗАСЕКРЕЧЕНО - МАЙК МАЛАС -->
         <div id="page-malasa" class="page" style="position: relative;">
             <div class="classified-stamp">СЕКРЕТНО</div>
             <div class="malasa-dossier">
@@ -1099,7 +1082,7 @@
 
                     <div class="malasa-field">
                         <div class="label">ДОЛЖНОСТЬ</div>
-                        <div class="value">Директор ФБР / Мэр Лос-Сантоса</div>
+                        <div class="value">Губернатор штата Сан-Андреас</div>
                     </div>
 
                     <div class="malasa-field">
@@ -1110,13 +1093,14 @@
                     <div class="malasa-field">
                         <div class="label">ОПИСАНИЕ</div>
                         <div class="value" style="font-size: 16px; color: #aaa;">
-                            Родился 5 марта 1995 года в Либерти Сити. На должность директора вступил в 2023 году. В 2024 году разрушил ОПГ *SKULL*. В 2025 подавил восстание против правительства. Его настоящая фамилия - Торено (скрытая информация).
+                            Родился 5 марта 1995 года в Либерти Сити. На должность губернатора вступил в 2023 году. В 2024 году разрушил ОПГ *SKULL*. В 2025 подавил восстание против правительства. Его настоящая фамилия - Торено (скрытая информация).
                         </div>
                     </div>
                 </div>
             </div>
         </div>
 
+        <!-- Тревога -->
         <div id="page-alert" class="page">
             <div class="alert-page">
                 <h1 style="color: #ff0000; font-size: 48px;">🚨 RED ALERT 🚨</h1>
@@ -1204,7 +1188,7 @@
             if (query.includes('глеб') || query.includes('малыхин') || query.includes('gleb')) {
                 document.getElementById('citizenGleb').classList.add('active-card');
             }
-            else if (query.includes('raven') || query.includes('равен') || query.includes('von')) {
+            else if (query.includes('raven') || query.includes('равен') || query.includes('reginald') || query.includes('реджинальд')) {
                 document.getElementById('citizenRaven').classList.add('active-card');
             }
             else if (query.includes('иван') || query.includes('drago') || query.includes('драго')) {
@@ -1223,7 +1207,7 @@
 
         // БИО АГЕНТОВ
         function showAgentBio(agent) {
-             const modal = document.getElementById('agentModal');
+            const modal = document.getElementById('agentModal');
             const content = document.getElementById('agentBioContent');
             
             let bioHtml = '';
@@ -1236,7 +1220,7 @@
                     <p><strong>Специализация:</strong> Полевые операции, захват</p>
                     <p><strong>Послужной список:</strong> 15 лет в ФБР. Участвовал в 34 операциях. Лично задержал 12 особо опасных преступников.</p>
                     <p><strong>Текущий статус:</strong> В поле, преследование группировки PAYDAY</p>
-                    <button onclick="document.getElementById('agentModal').classList.remove('active')">ЗАКРЫТЬ</button>
+               <button onclick="document.getElementById('agentModal').classList.remove('active')">ЗАКРЫТЬ</button>
                 `;
             } else if (agent === 'rains') {
                 bioHtml = `
@@ -1256,16 +1240,6 @@
                     <p><strong>Специализация:</strong> Координация, слежка</p>
                     <p><strong>Послужной список:</strong> 11 лет в ФБР. Координировал 56 операций. Внедрил 8 агентов под прикрытие.</p>
                     <p><strong>Текущий статус:</strong> Слежка за русской мафией в порту</p>
-                    <button onclick="document.getElementById('agentModal').classList.remove('active')">ЗАКРЫТЬ</button>
-                `;
-            } else if (agent === 'malas') {
-                bioHtml = `
-                    <h2>Director Malas</h2>
-                    <p><strong>Настоящее имя:</strong> Майкл Малас Торено</p>
-                    <p><strong>Возраст:</strong> 31 год</p>
-                    <p><strong>Должность:</strong> Директор ФБР / Мэр Лос-Сантоса</p>
-                    <p><strong>Послужной список:</strong> Назначен в 2023. В 2024 уничтожил ОПГ "SKULL". В 2025 подавил восстание. Лично руководит операцией "Перегрузка".</p>
-                    <p><strong>Текущий статус:</strong> В кабинете, координация спецопераций</p>
                     <button onclick="document.getElementById('agentModal').classList.remove('active')">ЗАКРЫТЬ</button>
                 `;
             }
@@ -1315,18 +1289,6 @@
                     <p><strong>Ущерб:</strong> $5.7 миллиона</p>
                     <p><strong>Улики:</strong> Цифровые следы, выход на сервера через VPN</p>
                     <p><strong>Статус:</strong> Холодное дело</p>
-                    <button onclick="document.getElementById('archiveModal').classList.remove('active')">ЗАКРЫТЬ</button>
-                `;
-            } else if (archive === 'jewelry') {
-                detailHtml = `
-                    <h2>💍 ЮВЕЛИРНЫЙ МАГАЗИН</h2>
-                    <p><strong>Дата:</strong> 18 февраля 2025</p>
-                    <p><strong>Время:</strong> 16:20</p>
-                    <p><strong>Участники:</strong> Даллас, Чейнс</p>
-                    <p><strong>Схема:</strong> Быстрый налёт, отключение сигнализации</p>
-                    <p><strong>Ущерб:</strong> $3.2 миллиона</p>
-                    <p><strong>Улики:</strong> Запись камер, описание внешности</p>
-                    <p><strong>Статус:</strong> Расследуется</p>
                     <button onclick="document.getElementById('archiveModal').classList.remove('active')">ЗАКРЫТЬ</button>
                 `;
             }
@@ -1383,4 +1345,3 @@
     </script>
 </body>
 </html>
-    
