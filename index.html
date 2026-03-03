@@ -86,7 +86,6 @@
             width: 70%;
         }
 
-        /* ВЕРХНЯЯ НАВИГАЦИЯ (4 КНОПКИ) */
         .case-nav {
             display: flex;
             border-bottom: 2px solid #222;
@@ -123,7 +122,6 @@
             color: white;
         }
 
-        /* КНОПКА ТРЕВОГИ */
         .alert-button-container {
             display: flex;
             justify-content: flex-end;
@@ -156,7 +154,6 @@
             100% { box-shadow: 0 0 10px #ff0000; }
         }
 
-        /* СТРАНИЦЫ */
         .page {
             display: none;
         }
@@ -165,7 +162,6 @@
             display: block;
         }
 
-        /* Главная сетка */
         .content-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -235,7 +231,6 @@
             color: #ff0000;
         }
 
-        /* Розыск */
         .wanted-list {
             background: #0a0a0a;
             padding: 20px;
@@ -272,7 +267,6 @@
             font-size: 18px;
         }
 
-        /* Агенты */
         .agents-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -315,7 +309,6 @@
             font-size: 12px;
         }
 
-        /* Архив */
         .archive-item {
             padding: 15px;
             background: #111;
@@ -323,7 +316,6 @@
             margin-bottom: 15px;
         }
 
-        /* Терроризм */
         .terror-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
@@ -343,7 +335,6 @@
             margin-bottom: 15px;
         }
 
-        /* SWAT */
         .swat-panel {
             background: #0a0a0a;
             border: 2px solid #ffaa00;
@@ -374,7 +365,6 @@
             100% { background-color: #ff0000; box-shadow: 0 0 20px #ff0000; }
         }
 
-        /* Разведка */
         .intel-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -393,7 +383,6 @@
             margin-bottom: 10px;
         }
 
-        /* ЗАСЕКРЕЧЕНО - МАЙК МАЛЛАС */
         .malasa-dossier {
             background: #0a0a0a;
             border: 3px solid #8b0000;
@@ -461,7 +450,6 @@
             pointer-events: none;
         }
 
-        /* Тревога */
         .alert-page {
             background: #1a0000;
             padding: 30px;
@@ -471,7 +459,6 @@
             margin-bottom: 30px;
         }
 
-        /* Лента */
         .live-feed {
             background: #000;
             padding: 15px;
@@ -490,7 +477,6 @@
             padding-bottom: 3px;
         }
 
-        /* НИЖНИЕ НАШИВКИ (КЛИКАБЕЛЬНЫЕ) */
         .badges {
             margin-top: 40px;
             display: flex;
@@ -521,6 +507,90 @@
             transform: scale(1.05);
         }
 
+        .password-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .password-modal.active {
+            display: flex;
+        }
+
+        .password-box {
+            background-color: #111;
+            border: 3px solid #8b0000;
+            padding: 40px;
+            max-width: 400px;
+            width: 90%;
+            box-shadow: 0 0 50px rgba(255, 0, 0, 0.3);
+        }
+
+        .password-box h2 {
+            color: #ff5e5e;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+        }
+
+        .password-box input {
+            width: 100%;
+            padding: 15px;
+            background: #1a1a1a;
+            border: 2px solid #333;
+            color: white;
+            font-size: 18px;
+            margin-bottom: 20px;
+            font-family: 'Courier New', monospace;
+        }
+
+        .password-box input:focus {
+            outline: none;
+            border-color: #8b0000;
+        }
+
+        .password-box button {
+            background: #8b0000;
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            font-size: 18px;
+            cursor: pointer;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-right: 10px;
+        }
+
+        .password-box button:hover {
+            background: #ff0000;
+        }
+
+        .password-box .close-btn {
+            background: #333;
+        }
+
+        .password-box .close-btn:hover {
+            background: #555;
+        }
+
+        .error-message {
+            color: #ff5555;
+            margin-top: 10px;
+            font-size: 14px;
+            display: none;
+        }
+
+        .error-message.show {
+            display: block;
+        }
+
         .footer-warning {
             text-align: center;
             margin-top: 30px;
@@ -540,19 +610,16 @@
 <body>
     <div class="fbi-terminal">
 
-        <!-- Шапка -->
         <div class="classified-header">
             <div class="left">ЗАСЕКРЕЧЕНО</div>
             <div>Допуск: ТОЛЬКО ДЛЯ ПРАВООХРАНИТЕЛЬНЫХ ОРГАНОВ // УРОВЕНЬ 4</div>
         </div>
 
-        <!-- Лого -->
         <div class="fbi-seal">
             <h1>F·B·I</h1>
             <p>ФЕДЕРАЛЬНОЕ БЮРО РАССЛЕДОВАНИЙ</p>
         </div>
 
-        <!-- ВЕРХНЯЯ НАВИГАЦИЯ (4 КНОПКИ) -->
         <div class="case-nav">
             <button class="nav-btn active" onclick="switchPage('active', this)">Активные дела</button>
             <button class="nav-btn" onclick="switchPage('wanted', this)">Розыск</button>
@@ -560,12 +627,10 @@
             <button class="nav-btn" onclick="switchPage('archive', this)">Архив PAYDAY</button>
         </div>
 
-        <!-- КНОПКА ТРЕВОГИ -->
         <div class="alert-button-container">
             <button class="alert-nav-btn" onclick="switchPage('alert', this)">🚨 ТРЕВОГА 🚨</button>
         </div>
 
-        <!-- Активные дела -->
         <div id="page-active" class="page active-page">
             <div class="content-grid">
                 <div class="case-file">
@@ -608,7 +673,6 @@
             </div>
         </div>
 
-        <!-- Розыск -->
         <div id="page-wanted" class="page">
             <div class="wanted-list">
                 <h2 style="color: white; margin-bottom: 20px; border-bottom: 2px solid #8b0000;">⚡ ФЕДЕРАЛЬНЫЙ РОЗЫСК</h2>
@@ -637,12 +701,11 @@
                         <div class="wanted-name">Чейнс (Samuel Pearson)</div>
                         <div style="color: #888;">Бывший морпех</div>
                     </div>
-                    <div class="wanted-reward">$3,800,000</div>
-                </div>
+                    <div class="wanted-reward">$3,800,000<
+                    </div>
             </div>
         </div>
 
-        <!-- Агенты -->
         <div id="page-agents" class="page">
             <div class="agents-grid">
                 <div class="agent-card">
@@ -666,7 +729,6 @@
             </div>
         </div>
 
-        <!-- Архив PAYDAY -->
         <div id="page-archive" class="page">
             <div style="background: #0a0a0a; padding: 20px;">
                 <h2 style="color: white; margin-bottom: 20px;">📁 АРХИВ ОПЕРАЦИЙ PAYDAY</h2>
@@ -685,7 +747,6 @@
             </div>
         </div>
 
-        <!-- Терроризм -->
         <div id="page-terror" class="page">
             <h2 style="color: white; margin-bottom: 20px;">💣 ОТДЕЛ ПО БОРЬБЕ С ТЕРРОРИЗМОМ</h2>
             <div class="terror-grid">
@@ -700,7 +761,6 @@
             </div>
         </div>
 
-        <!-- SWAT -->
         <div id="page-swat" class="page">
             <div class="swat-panel">
                 <h2 style="color: #ffaa00;">🚨 SWAT TEAM</h2>
@@ -710,7 +770,6 @@
             </div>
         </div>
 
-        <!-- Разведка -->
         <div id="page-intel" class="page">
             <h2 style="color: white; margin-bottom: 20px;">🕵️ КРИМИНАЛЬНАЯ РАЗВЕДКА</h2>
             <div class="intel-grid">
@@ -729,7 +788,6 @@
             </div>
         </div>
 
-        <!-- ЗАСЕКРЕЧЕНО - МАЙК МАЛЛАС -->
         <div id="page-malasa" class="page" style="position: relative;">
             <div class="classified-stamp">СЕКРЕТНО</div>
             <div class="malasa-dossier">
@@ -737,11 +795,11 @@
                     <img src="editing_result_224b0bbd134011f19a08e676f5c8961e_1.jpg" alt="Mike Mallasa" onerror="this.style.display='none'; this.parentElement.innerHTML='👤';">
                 </div>
                 <div class="malasa-info">
-                    <h2>⚡ МАЙК МАЛЛАС ⚡</h2>
+                    <h2>⚡ МАЙК МАЛАС ⚡</h2>
                     
                     <div class="malasa-field">
                         <div class="label">ФАМИЛИЯ ИМЯ</div>
-                        <div class="value">Маллас Майкл [ТВОЙ ТЕКСТ]</div>
+                        <div class="value">Малас Майкл [ТВОЁ ИМЯ]</div>
                     </div>
 
                     <div class="malasa-field">
@@ -764,7 +822,6 @@
             </div>
         </div>
 
-        <!-- Тревога -->
         <div id="page-alert" class="page">
             <div class="alert-page">
                 <h1 style="color: #ff0000; font-size: 48px;">🚨 RED ALERT 🚨</h1>
@@ -772,7 +829,6 @@
             </div>
         </div>
 
-        <!-- Лента -->
         <div class="live-feed">
             <p>[CAPTAIN] Отряд быстрого реагирования выдвинут на координаты 42.3242, -71.342</p>
             <p>[INTEL] Подтверждено использование маски "Хокстон"</p>
@@ -780,41 +836,77 @@
             <p>[CMD] Всем постам: повысить готовность до "Красный код"</p>
         </div>
 
-        <!-- НИЖНИЕ НАШИВКИ (КЛИКАБЕЛЬНЫЕ) -->
         <div class="badges">
             <div class="badge" onclick="switchPage('terror')">ОТДЕЛ ПО БОРЬБЕ С ТЕРРОРИЗМОМ</div>
             <div class="badge" onclick="switchPage('swat')">КОМАНДА SWAT</div>
             <div class="badge" onclick="switchPage('intel')">КРИМИНАЛЬНАЯ РАЗВЕДКА</div>
-            <div class="badge" onclick="switchPage('malasa')">ЗАСЕКРЕЧЕНО</div>
+            <div class="badge" onclick="showPasswordModal()">ЗАСЕКРЕЧЕНО</div>
         </div>
 
-        <!-- Футер -->
         <div class="footer-warning">
             <span>ЛЮБАЯ УТЕЧКА ИНФОРМАЦИИ ПРЕСЛЕДУЕТСЯ ПО ЗАКОНУ</span>
         </div>
 
     </div>
 
+    <div id="passwordModal" class="password-modal">
+        <div class="password-box">
+            <h2>🔐 ВВЕДИТЕ ПАРОЛЬ</h2>
+            <input type="password" id="passwordInput" placeholder="ПАРОЛЬ ДОСТУПА" onkeypress="if(event.key==='Enter') checkPassword()">
+            <div>
+                <button onclick="checkPassword()">ВОЙТИ</button>
+                <button class="close-btn" onclick="hidePasswordModal()">ОТМЕНА</button>
+            </div>
+            <div id="passwordError" class="error-message">НЕВЕРНЫЙ ПАРОЛЬ! ДОСТУП ЗАПРЕЩЕН</div>
+        </div>
+    </div>
+
     <script>
+        const SECRET_PASSWORD = "MALASA2026";
+        
         function switchPage(pageName, element) {
-            // Скрываем все страницы
             document.querySelectorAll('.page').forEach(page => {
                 page.classList.remove('active-page');
             });
             
-            // Показываем нужную страницу
             document.getElementById('page-' + pageName).classList.add('active-page');
             
-            // Убираем active у всех верхних кнопок
             document.querySelectorAll('.nav-btn').forEach(btn => {
                 btn.classList.remove('active');
             });
             
-            // Если клик по верхней кнопке - активируем её
             if (element && element.classList.contains('nav-btn')) {
                 element.classList.add('active');
             }
         }
+
+        function showPasswordModal() {
+            document.getElementById('passwordModal').classList.add('active');
+            document.getElementById('passwordInput').value = '';
+            document.getElementById('passwordError').classList.remove('show');
+        }
+
+        function hidePasswordModal() {
+            document.getElementById('passwordModal').classList.remove('active');
+        }
+
+        function checkPassword() {
+            const password = document.getElementById('passwordInput').value;
+            
+            if (password === SECRET_PASSWORD) {
+                hidePasswordModal();
+                document.querySelectorAll('.page').forEach(page => {
+                    page.classList.remove('active-page');
+                });
+                document.getElementById('page-malasa').classList.add('active-page');
+                
+                document.querySelectorAll('.nav-btn').forEach(btn => {
+                    btn.classList.remove('active');
+                });
+            } else {
+                document.getElementById('passwordError').classList.add('show');
+            }
+        }
     </script>
 </body>
-</html>
+    </html>
