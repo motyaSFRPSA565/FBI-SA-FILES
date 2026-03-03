@@ -1140,25 +1140,28 @@
         }
 
         // ПРОВЕРКА ПАРОЛЯ РАЗДЕЛА
-        function checkSectionPassword() {
-            const password = document.getElementById('sectionPassword').value;
-            let requiredPassword = '';
-            
-            if (pendingSection === 'wanted' || pendingSection === 'agents') {
-                requiredPassword = AGENTS_PASSWORD;
-            } else if (pendingSection === 'archive') {
-                requiredPassword = ARCHIVE_PASSWORD;
-            } else if (pendingSection === 'swat') {
-                requiredPassword = SWAT_PASSWORD;
-            }
-            
-            if (password === requiredPassword) {
-                hideSectionModal();
-                switchPage(pendingSection, pendingElement);
-            } else {
-                document.getElementById('sectionError').classList.add('show');
-            }
-        }
+       function checkSectionPassword() {
+    const password = document.getElementById('sectionPassword').value;
+    let requiredPassword = '';
+    
+    if (pendingSection === 'wanted' || pendingSection === 'agents') {
+        requiredPassword = AGENTS_PASSWORD;
+    } else if (pendingSection === 'archive') {
+        requiredPassword = ARCHIVE_PASSWORD;
+    } else if (pendingSection === 'swat') {
+        requiredPassword = SWAT_PASSWORD;
+    } else if (pendingSection === 'malas') {
+        requiredPassword = MALAS_PASSWORD;  // ← ВОТ ЭТО БЫЛО ПРОПУЩЕНО!
+    }
+    
+    if (password === requiredPassword) {
+        hideSectionModal();
+        switchPage(pendingSection, pendingElement);
+    } else {
+        document.getElementById('sectionError').classList.add('show');
+    }
+                    }
+        
 
         // ПРОВЕРКА ДОСТУПА К SWAT (отдельно для кнопки тревоги)
         function checkSwatAccess() {
@@ -1173,16 +1176,15 @@
 
         // ПРОВЕРКА ДОСТУПА К МАЛАСУ
         function checkMalasAccess() {
-            pendingSection = 'malas';
-            pendingElement = null;
-            
-            document.getElementById('sectionModalTitle').textContent = '🔐 ДОСТУП К ЗАСЕКРЕЧЕННОМУ ДОСЬЕ';
-            document.getElementById('sectionModal').classList.add('active');
-            document.getElementById('sectionPassword').value = '';
-            document.getElementById('sectionError').classList.remove('show');
-            
-            // Для Маласа свой пароль
-        }
+    pendingSection = 'malas';
+    pendingElement = null;
+    
+    document.getElementById('sectionModalTitle').textContent = '🔐 ДОСТУП К ЗАСЕКРЕЧЕННОМУ ДОСЬЕ';
+    document.getElementById('sectionModal').classList.add('active');
+    document.getElementById('sectionPassword').value = '';
+    document.getElementById('sectionError').classList.remove('show');
+}
+
 
         // СКРЫТЬ МОДАЛЬНОЕ ОКНО ПАРОЛЯ
         function hideSectionModal() {
