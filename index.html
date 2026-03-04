@@ -1077,89 +1077,170 @@
                             <div class="value" style="font-size: 16px; color: #aaa;">
                                 Тактический штурмовой щит спецподразделений ФБР. Оснащен:
                                 <br>• 🔦 Ослепляющий фонарь-вспышка (дезориентация противника)
-                                <br>• 🛡️ Многослойное бронестекло (класс защиты 5)
-                                <br>• 🔫 Встроенный дробовик (2 заряда, быстрый перезаряд)
-                                <br>Разработан для подавления особо опасных вооруженных групп.
-                            </div>
-                        </div>
-                        
-                        <div class="malasa-field">
-                            <div class="label">ТЕХНИЧЕСКИЕ ХАРАКТЕРИСТИКИ</div>
-                            <div class="value" style="font-size: 16px; color: #aaa;">
-                                • Вес: 18 кг
-                                • Автономность: 4 часа
-                                • Дальность фонаря: 50 метров
-                                • Боекомплект: 10 патронов 12 калибра
-                            </div>
-                        </div>
-                        
-                        <div class="malasa-field">
-                            <div class="label">ДАТА ЗАВЕРШЕНИЯ</div>
-                            <div class="value" style="color: #ffaa00;">2026 (ПРОГНОЗ)</div>
-                        </div>
-                        
-                        <div style="margin-top: 20px; background: #1a0000; padding: 10px; border: 1px solid #0066cc;">
-                            <span style="color: #0066cc;">⚠️ ИНФОРМАЦИЯ СТРОГО ЗАСЕКРЕЧЕНА</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
+<!-- ЗАСЕКРЕЧЕНО (ТРИ ДОСЬЕ) -->
+<div id="page-malasa" class="page">
+    <div style="position: relative; margin-bottom: 30px;">
+        <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid #8b0000; padding-bottom: 15px;">
+            <h2 style="color: white; font-size: 36px; letter-spacing: 3px;">⚡ СОВЕРШЕННО СЕКРЕТНО ⚡</h2>
+            <div style="color: #ff0000; font-size: 24px; opacity: 0.5; transform: rotate(-5deg); border: 3px solid #ff0000; padding: 5px 20px; font-weight: bold;">ДОПУСК: УРОВЕНЬ 5</div>
+        </div>
+    </div>
 
-            <!-- ВИЛЛИ МИЛЬШТЕЙН -->
-            <div id="classified-milstein" class="classified-content">
-                <div class="project-milstein">
-                    <h2 style="color: #ff66cc; font-size: 36px; margin-bottom: 20px;">⚡ ВИЛЛИ МИЛЬШТЕЙН ⚡</h2>
-                    
-                    <div style="background: #111; border-left: 5px solid #8b008b; padding: 20px;">
-                        <div class="malasa-field">
-                            <div class="label">ФАМИЛИЯ ИМЯ</div>
-                            <div class="value">Мильштейн Вилли</div>
-                        </div>
-                        
-                        <div class="malasa-field">
-                            <div class="label">ДОЛЖНОСТЬ</div>
-                            <div class="value">Бизнесмен / Владелец острова</div>
-                        </div>
-                        
-                        <div class="malasa-field">
-                            <div class="label">ДАТА РОЖДЕНИЯ</div>
-                            <div class="value">20.07.1965</div>
-                        </div>
-                        
-                        <div class="malasa-field">
-                            <div class="label">МЕСТО РОЖДЕНИЯ</div>
-                            <div class="value">Либерти Сити</div>
-                        </div>
-                        
-                        <div class="malasa-field">
-                            <div class="label">АКТИВЫ</div>
-                            <div class="value">Приобрел частный остров в 2015 году</div>
-                        </div>
-                        
-                        <div class="malasa-field">
-                            <div class="label">ПОДОЗРЕНИЯ</div>
-                            <div class="value" style="font-size: 16px; color: #aaa;">
-                                По данным агентуры, на острове проводятся незаконные мероприятия с участием несовершеннолетних. Связан с высокопоставленными чиновниками. Имеет частный самолёт, который зафиксирован в аэропортах Лос-Сантоса, Либерти Сити и Вайс-Сити. По неподтверждённым данным, на острове есть подземный бункер.
-                            </div>
-                        </div>
-                        
-                        <div class="malasa-field">
-                            <div class="label">СВЯЗИ</div>
-                            <div class="value">Отслеживаются контакты с рядом политиков</div>
-                        </div>
-                        
-                        <div class="malasa-field">
-                            <div class="label">СТАТУС</div>
-                            <div class="value" style="color: #ffaa00;">ПОД СЛЕЖКОЙ</div>
-                        </div>
-                        
-                        <div style="margin-top: 20px; background: #1a0000; padding: 10px; border: 1px solid #8b008b;">
-                            <span style="color: #ff99cc;">⚠️ ДЕЛО КОНТРОЛИРУЕТСЯ ЛИЧНО ДИРЕКТОРОМ ФБР</span>
-                        </div>
+    <!-- КНОПКИ ПЕРЕКЛЮЧЕНИЯ -->
+    <div style="display: flex; gap: 10px; margin: 30px 0 20px 0; border-bottom: 2px solid #8b0000; padding-bottom: 10px; flex-wrap: wrap;">
+        <div class="classified-tab active" onclick="switchClassifiedTab('malas')" style="padding: 12px 25px; background-color: #8b0000; color: white; border: 1px solid #ff0000; cursor: pointer; text-transform: uppercase; font-weight: bold; letter-spacing: 1px; border-radius: 5px 5px 0 0;">МАЙК МАЛАС</div>
+        <div class="classified-tab" onclick="switchClassifiedTab('shield')" style="padding: 12px 25px; background-color: #1a1a1a; color: #aaa; border: 1px solid #333; cursor: pointer; text-transform: uppercase; font-weight: bold; letter-spacing: 1px; border-radius: 5px 5px 0 0;">ПРОЕКТ "SUPER SHIELD"</div>
+        <div class="classified-tab" onclick="switchClassifiedTab('milstein')" style="padding: 12px 25px; background-color: #1a1a1a; color: #aaa; border: 1px solid #333; cursor: pointer; text-transform: uppercase; font-weight: bold; letter-spacing: 1px; border-radius: 5px 5px 0 0;">ВИЛЛИ МИЛЬШТЕЙН</div>
+    </div>
+
+    <!-- ДОСЬЕ МАЛАСА -->
+    <div id="classified-malas" class="classified-content" style="display: block; background: #0a0a0a; border: 1px solid #333; padding: 30px;">
+        <div style="background: #0a0a0a; border: 3px solid #8b0000; padding: 30px; display: grid; grid-template-columns: 300px 1fr; gap: 30px; position: relative;">
+            <div style="border: 3px solid #ff0000; padding: 10px; background: #000;">
+                <img src="editing_result_224b0bbd134011f19a08e676f5c8961e_1.jpg" alt="Mike Mallasa" onerror="this.style.display='none'; this.parentElement.innerHTML='👤';" style="width: 100%; height: auto; display: block; border: 1px solid #333;">
+            </div>
+            <div style="padding: 20px; background: #111; border-left: 5px solid #8b0000;">
+                <h2 style="color: white; font-size: 36px; margin-bottom: 20px; border-bottom: 2px solid #8b0000;">⚡ МАЙК МАЛАС ⚡</h2>
+                
+                <div style="margin-bottom: 15px;">
+                    <div style="color: #8b8b8b; font-size: 14px; text-transform: uppercase;">ФАМИЛИЯ ИМЯ</div>
+                    <div style="color: white; font-size: 20px; font-weight: bold;">Малас Майкл Торено</div>
+                </div>
+
+                <div style="margin-bottom: 15px;">
+                    <div style="color: #8b8b8b; font-size: 14px; text-transform: uppercase;">ДОЛЖНОСТЬ</div>
+                    <div style="color: white; font-size: 20px; font-weight: bold;">Губернатор штата Сан-Андреас</div>
+                </div>
+
+                <div style="margin-bottom: 15px;">
+                    <div style="color: #8b8b8b; font-size: 14px; text-transform: uppercase;">ДАТА РОЖДЕНИЯ</div>
+                    <div style="color: white; font-size: 20px; font-weight: bold;">05.03.1995</div>
+                </div>
+
+                <div style="margin-bottom: 15px;">
+                    <div style="color: #8b8b8b; font-size: 14px; text-transform: uppercase;">МЕСТО РОЖДЕНИЯ</div>
+                    <div style="color: white; font-size: 20px; font-weight: bold;">Либерти Сити</div>
+                </div>
+
+                <div style="margin-bottom: 15px;">
+                    <div style="color: #8b8b8b; font-size: 14px; text-transform: uppercase;">ДОПУСК</div>
+                    <div style="color: #ff0000; font-size: 20px; font-weight: bold;">УРОВЕНЬ 5 (МАКСИМАЛЬНЫЙ)</div>
+                </div>
+
+                <div style="margin-bottom: 15px;">
+                    <div style="color: #8b8b8b; font-size: 14px; text-transform: uppercase;">ОПИСАНИЕ</div>
+                    <div style="font-size: 16px; color: #aaa;">
+                        Родился 5 марта 1995 года в Либерти Сити. На должность губернатора вступил в 2023 году. В 2024 году разрушил ОПГ *SKULL*. В 2025 подавил восстание против правительства. Его настоящая фамилия - Торено (скрытая информация).
                     </div>
                 </div>
             </div>
         </div>
+    </div>
+
+    <!-- ПРОЕКТ SUPER SHIELD -->
+    <div id="classified-shield" class="classified-content" style="display: none; background: #0a0a0a; border: 1px solid #333; padding: 30px;">
+        <div style="background: #0a0a0a; border: 3px solid #0066cc; padding: 30px; position: relative;">
+            <h2 style="color: #0066cc; font-size: 36px; margin-bottom: 20px;">⚡ ПРОЕКТ "SUPER SHIELD" ⚡</h2>
+            
+            <div style="background: #111; border-left: 5px solid #0066cc; padding: 20px;">
+                <div style="margin-bottom: 15px;">
+                    <div style="color: #88ccff; font-size: 14px; text-transform: uppercase;">СТАТУС</div>
+                    <div style="color: #ffaa00; font-size: 20px; font-weight: bold;">АКТИВНАЯ РАЗРАБОТКА</div>
+                </div>
+                
+                <div style="margin-bottom: 15px;">
+                    <div style="color: #88ccff; font-size: 14px; text-transform: uppercase;">ЗАКАЗЧИК</div>
+                    <div style="color: white; font-size: 20px; font-weight: bold;">Подразделение SWAT / Министерство обороны</div>
+                </div>
+                
+                <div style="margin-bottom: 15px;">
+                    <div style="color: #88ccff; font-size: 14px; text-transform: uppercase;">ОПИСАНИЕ</div>
+                    <div style="font-size: 16px; color: #aaa;">
+                        Тактический штурмовой щит спецподразделений ФБР. Оснащен:
+                        <br>• 🔦 Ослепляющий фонарь-вспышка (дезориентация противника)
+                        <br>• 🛡️ Многослойное бронестекло (класс защиты 5)
+                        <br>• 🔫 Встроенный дробовик (2 заряда, быстрый перезаряд)
+                        <br>Разработан для подавления особо опасных вооруженных групп.
+                    </div>
+                </div>
+                
+                <div style="margin-bottom: 15px;">
+                    <div style="color: #88ccff; font-size: 14px; text-transform: uppercase;">ТЕХНИЧЕСКИЕ ХАРАКТЕРИСТИКИ</div>
+                    <div style="font-size: 16px; color: #aaa;">
+                        • Вес: 18 кг
+                        • Автономность: 4 часа
+                        • Дальность фонаря: 50 метров
+                        • Боекомплект: 10 патронов 12 калибра
+                    </div>
+                </div>
+                
+                <div style="margin-bottom: 15px;">
+                    <div style="color: #88ccff; font-size: 14px; text-transform: uppercase;">ДАТА ЗАВЕРШЕНИЯ</div>
+                    <div style="color: #ffaa00; font-size: 20px; font-weight: bold;">2026 (ПРОГНОЗ)</div>
+                </div>
+                
+                <div style="margin-top: 20px; background: #1a0000; padding: 10px; border: 1px solid #0066cc;">
+                    <span style="color: #0066cc;">⚠️ ИНФОРМАЦИЯ СТРОГО ЗАСЕКРЕЧЕНА</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ВИЛЛИ МИЛЬШТЕЙН -->
+    <div id="classified-milstein" class="classified-content" style="display: none; background: #0a0a0a; border: 1px solid #333; padding: 30px;">
+        <div style="background: #0a0a0a; border: 3px solid #8b008b; padding: 30px; position: relative;">
+            <h2 style="color: #ff66cc; font-size: 36px; margin-bottom: 20px;">⚡ ВИЛЛИ МИЛЬШТЕЙН ⚡</h2>
+            
+            <div style="background: #111; border-left: 5px solid #8b008b; padding: 20px;">
+                <div style="margin-bottom: 15px;">
+                    <div style="color: #ff99cc; font-size: 14px; text-transform: uppercase;">ФАМИЛИЯ ИМЯ</div>
+                    <div style="color: white; font-size: 20px; font-weight: bold;">Мильштейн Вилли</div>
+                </div>
+                
+                <div style="margin-bottom: 15px;">
+                    <div style="color: #ff99cc; font-size: 14px; text-transform: uppercase;">ДОЛЖНОСТЬ</div>
+                    <div style="color: white; font-size: 20px; font-weight: bold;">Бизнесмен / Владелец острова</div>
+                </div>
+                
+                <div style="margin-bottom: 15px;">
+                    <div style="color: #ff99cc; font-size: 14px; text-transform: uppercase;">ДАТА РОЖДЕНИЯ</div>
+                    <div style="color: white; font-size: 20px; font-weight: bold;">20.07.1965</div>
+                </div>
+                
+                <div style="margin-bottom: 15px;">
+                    <div style="color: #ff99cc; font-size: 14px; text-transform: uppercase;">МЕСТО РОЖДЕНИЯ</div>
+                    <div style="color: white; font-size: 20px; font-weight: bold;">Либерти Сити</div>
+                </div>
+                
+                <div style="margin-bottom: 15px;">
+                    <div style="color: #ff99cc; font-size: 14px; text-transform: uppercase;">АКТИВЫ</div>
+                    <div style="color: white; font-size: 20px; font-weight: bold;">Приобрел частный остров в 2015 году</div>
+                </div>
+                
+                <div style="margin-bottom: 15px;">
+                    <div style="color: #ff99cc; font-size: 14px; text-transform: uppercase;">ПОДОЗРЕНИЯ</div>
+                    <div style="font-size: 16px; color: #aaa;">
+                        По данным агентуры, на острове проводятся незаконные мероприятия с участием несовершеннолетних. Связан с высокопоставленными чиновниками. Имеет частный самолёт, который зафиксирован в аэропортах Лос-Сантоса, Либерти Сити и Вайс-Сити. По неподтверждённым данным, на острове есть подземный бункер.
+                    </div>
+                </div>
+                
+                <div style="margin-bottom: 15px;">
+                    <div style="color: #ff99cc; font-size: 14px; text-transform: uppercase;">СВЯЗИ</div>
+                    <div style="color: white; font-size: 16px;">Отслеживаются контакты с рядом политиков</div>
+                </div>
+                
+                <div style="margin-bottom: 15px;">
+                    <div style="color: #ff99cc; font-size: 14px; text-transform: uppercase;">СТАТУС</div>
+                    <div style="color: #ffaa00; font-size: 20px; font-weight: bold;">ПОД СЛЕЖКОЙ</div>
+                </div>
+                
+                <div style="margin-top: 20px; background: #1a0000; padding: 10px; border: 1px solid #8b008b;">
+                    <span style="color: #ff99cc;">⚠️ ДЕЛО КОНТРОЛИРУЕТСЯ ЛИЧНО ДИРЕКТОРОМ ФБР</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
         <!-- ТРЕВОГА -->
         <div id="page-alert" class="page">
