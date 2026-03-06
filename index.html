@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SAnet.OS v.1.43 — ФБР Сан-Андреас</title>
     <style>
+        /* СТИЛИ БЕЗ ИЗМЕНЕНИЙ (ТЕ ЖЕ, ЧТО В ПРОШЛЫЙ РАЗ) */
         * {
             margin: 0;
             padding: 0;
@@ -527,20 +528,7 @@
 
                 <!-- КОНТЕНТ ТЕРМИНАЛА -->
                 <div class="terminal-content" id="terminalContent">
-                    <!-- ЗАГРУЗКА ПО УМОЛЧАНИЮ (ЩИТ) -->
-                    <div class="terminal-line"><span class="terminal-prompt">[root@assets]></span> Загрузка данных о Супер Щитах USM...</div>
-                    <div class="terminal-line"><span class="terminal-prompt">[SYSTEM]></span> Доступ: <span class="highlight">РАЗРЕШЁН (УРОВЕНЬ 4)</span></div>
-                    <div class="terminal-line"><span class="terminal-prompt">[DATA]></span> Объект: <span class="highlight">Супер щит USM (Маршалы)</span></div>
-                    <div class="terminal-line"><span class="terminal-prompt">></span> Статус: АКТИВЕН</div>
-                    <ul class="specs-list">
-                        <li><strong>Баллистическая защита:</strong> Уровень IV (выдерживает до 40 попаданий из автомата)</li>
-                        <li><strong>Смотровое окно:</strong> Бронестекло 50мм, пуленепробиваемое</li>
-                        <li><strong>Вес:</strong> 35 кг с тактическим снаряжением</li>
-                        <li><strong>Особенность:</strong> Встроенный фонарь-ослепитель и система подавления</li>
-                        <li><strong>На вооружении:</strong> Подразделения USM (Маршалы США)</li>
-                        <li><strong>Примечание:</strong> Используется при штурме особо опасных объектов</li>
-                    </ul>
-                    <div class="terminal-line"><span class="terminal-prompt">[STATUS]></span> Система готова. Ожидайте дальнейших инструкций.</div>
+                    <!-- Загрузится через JS -->
                 </div>
             </div>
         </div>
@@ -614,7 +602,7 @@
             if (e.key === 'Enter') handleLogin();
         });
 
-        // Реальное время
+        // ===== РЕАЛЬНОЕ ВРЕМЯ =====
         function updateTime() {
             const now = new Date();
             const timeString = now.toLocaleTimeString('ru-RU', { 
@@ -631,22 +619,88 @@
         // ===== ЛОГИКА ПРИЛОЖЕНИЙ =====
         const terminalWindow = document.getElementById('terminalWindow');
         const assetsIcon = document.getElementById('assetsIcon');
-        const closeBtn = document.getElementById('close Btn')
+        const closeBtn = document.getElementById('closeBtn');
         const minimizeBtn = document.getElementById('minimizeBtn');
         const terminalTabs = document.querySelectorAll('.terminal-tab');
         const terminalContent = document.getElementById('terminalContent');
 
+        // Контент для вкладок
+        const tabContent = {
+            shield: `
+                <div class="terminal-line"><span class="terminal-prompt">[root@assets]></span> Загрузка данных о Супер Щитах USM...</div>
+                <div class="terminal-line"><span class="terminal-prompt">[SYSTEM]></span> Доступ: <span class="highlight">РАЗРЕШЁН (УРОВЕНЬ 4)</span></div>
+                <div class="terminal-line"><span class="terminal-prompt">[DATA]></span> Объект: <span class="highlight">Супер щит USM (Маршалы)</span></div>
+                <ul class="specs-list">
+                    <li><strong>Баллистическая защита:</strong> Уровень IV (выдерживает до 40 попаданий из автомата)</li>
+                    <li><strong>Смотровое окно:</strong> Бронестекло 50мм, пуленепробиваемое</li>
+                    <li><strong>Вес:</strong> 35 кг с тактическим снаряжением</li>
+                    <li><strong>Особенность:</strong> Встроенный фонарь-ослепитель и система подавления</li>
+                    <li><strong>На вооружении:</strong> Подразделения USM (Маршалы США)</li>
+                    <li><strong>Примечание:</strong> Используется при штурме особо опасных объектов</li>
+                </ul>
+            `,
+            cloaker: `
+                <div class="terminal-line"><span class="terminal-prompt">[root@assets]></span> Загрузка данных о Клокерах...</div>
+                <div class="terminal-line"><span class="terminal-prompt">[WARNING]></span> <span class="highlight">ОСОБО ОПАСНЫЙ ОБЪЕКТ</span></div>
+                <div class="terminal-line"><span class="terminal-prompt">[DATA]></span> Объект: <span class="highlight">Клокер (Спецагент подавления)</span></div>
+                <ul class="specs-list">
+                    <li><strong>Экипировка:</strong> Тактический костюм с усиленной защитой</li>
+                    <li><strong>Основное оружие:</strong> MP5 с перцовыми зарядами (нелетальное подавление)</li>
+                    <li><strong>Тактика:</strong> Быстрое перемещение, атака из засады</li>
+                    <li><strong>Особая способность:</strong> Электрошокер (мгновенное обездвиживание)</li>
+                    <li><strong>Статус:</strong> В активном розыске</li>
+                </ul>
+            `,
+            heavy: `
+                <div class="terminal-line"><span class="terminal-prompt">[root@assets]></span> Загрузка данных о тяжёлых бойцах USM...</div>
+                <div class="terminal-line"><span class="terminal-prompt">[DATA]></span> Объект: <span class="highlight">Тяжёлые бойцы USM (Маршалы)</span></div>
+                <ul class="specs-list">
+                    <li><strong>Броня:</strong> Композитная керамическая броня класса III+</li>
+                    <li><strong>Вооружение:</strong> Автоматы M4 с подствольными гранатомётами</li>
+                    <li><strong>Подготовка:</strong> Спецназ, тактика городского боя</li>
+                    <li><strong>Задача:</strong> Штурм укреплённых позиций, подавление огневых точек</li>
+                    <li><strong>Численность:</strong> Отдельные тактические группы</li>
+                </ul>
+            `,
+            locks: `
+                <div class="terminal-line"><span class="terminal-prompt">[root@assets]></span> Загрузка данных о системе замков...</div>
+                <div class="terminal-line"><span class="terminal-prompt">[DATA]></span> Объект: <span class="highlight">5-кратная система защиты замков</span></div>
+                <ul class="specs-list">
+                    <li><strong>Уровень 1:</strong> Механический замок высокой секретности</li>
+                    <li><strong>Уровень 2:</strong> Электронный кодовый замок (6-значный код)</li>
+                    <li><strong>Уровень 3:</strong> Биометрический сканер (отпечаток пальца)</li>
+                    <li><strong>Уровень 4:</strong> Сканер сетчатки глаза</li>
+                    <li><strong>Уровень 5:</strong> Система распознавания голоса</li>
+                    <li><strong>Время взлома:</strong> Оценочно 45+ минут профессионалом</li>
+                </ul>
+            `,
+            mp5: `
+                <div class="terminal-line"><span class="terminal-prompt">[root@assets]></span> Загрузка данных о MP5 с перцовыми зарядами...</div>
+                <div class="terminal-line"><span class="terminal-prompt">[DATA]></span> Объект: <span class="highlight">MP5K с перцовыми зарядами (для Клокеров)</span></div>
+                <ul class="specs-list">
+                    <li><strong>База:</strong> HK MP5K (короткоствольный вариант)</li>
+                    <li><strong>Боеприпасы:</strong> 9mm перцовые гранулы (нелетальные)</li>
+                    <li><strong>Эффект:</strong> Сильное раздражение глаз и дыхательных путей</li>
+                    <li><strong>Дальность:</strong> До 50 метров эффективно</li>
+                    <li><strong>Применение:</strong> Подавление массовых беспорядков, задержание без жертв</li>
+                    <li><strong>На вооружении:</strong> Клокеры, спецподразделения</li>
+                </ul>
+            `
+        };
+
         // Открыть терминал при клике на "Активы агентства"
         assetsIcon.addEventListener('click', () => {
             terminalWindow.style.display = 'flex';
+            // Загружаем первую вкладку по умолчанию
+            terminalContent.innerHTML = tabContent.shield;
         });
 
-        // Закрыть терминал
+        // Закрыть терминал (КРЕСТИК РАБОТАЕТ!)
         closeBtn.addEventListener('click', () => {
             terminalWindow.style.display = 'none';
         });
 
-        // Свернуть (просто прячем для демо)
+        // Свернуть (тоже закрываем для простоты)
         minimizeBtn.addEventListener('click', () => {
             terminalWindow.style.display = 'none';
         });
@@ -660,82 +714,7 @@
                 this.classList.add('active');
                 
                 const tabName = this.getAttribute('data-tab');
-                let content = '';
-                
-                // Контент для каждой вкладки
-                switch(tabName) {
-                    case 'shield':
-                        content = `
-                            <div class="terminal-line"><span class="terminal-prompt">[root@assets]></span> Загрузка данных о Супер Щитах USM...</div>
-                            <div class="terminal-line"><span class="terminal-prompt">[SYSTEM]></span> Доступ: <span class="highlight">РАЗРЕШЁН (УРОВЕНЬ 4)</span></div>
-                            <div class="terminal-line"><span class="terminal-prompt">[DATA]></span> Объект: <span class="highlight">Супер щит USM (Маршалы)</span></div>
-                            <ul class="specs-list">
-                                <li><strong>Баллистическая защита:</strong> Уровень IV (выдерживает до 40 попаданий из автомата)</li>
-                                <li><strong>Смотровое окно:</strong> Бронестекло 50мм, пуленепробиваемое</li>
-                                <li><strong>Вес:</strong> 35 кг с тактическим снаряжением</li>
-                                <li><strong>Особенность:</strong> Встроенный фонарь-ослепитель и система подавления</li>
-                                <li><strong>На вооружении:</strong> Подразделения USM (Маршалы США)</li>
-                                <li><strong>Примечание:</strong> Используется при штурме особо опасных объектов</li>
-                            </ul>
-                        `;
-                        break;
-                    case 'cloaker':
-                        content = `
-                            <div class="terminal-line"><span class="terminal-prompt">[root@assets]></span> Загрузка данных о Клокерах...</div>
-                            <div class="terminal-line"><span class="terminal-prompt">[WARNING]></span> <span class="highlight">ОСОБО ОПАСНЫЙ ОБЪЕКТ</span></div>
-                            <div class="terminal-line"><span class="terminal-prompt">[DATA]></span> Объект: <span class="highlight">Клокер (Спецагент подавления)</span></div>
-                            <ul class="specs-list">
-                                <li><strong>Экипировка:</strong> Тактический костюм с усиленной защитой</li>
-                                <li><strong>Основное оружие:</strong> MP5 с перцовыми зарядами (нелетальное подавление)</li>
-                                <li><strong>Тактика:</strong> Быстрое перемещение, атака из засады</li>
-                                <li><strong>Особая способность:</strong> Электрошокер (мгновенное обездвиживание)</li>
-                                <li><strong>Статус:</strong> В активном розыске</li>
-                            </ul>
-                        `;
-                        break;
-                    case 'heavy':
-                        content = `
-                            <div class="terminal-line"><span class="terminal-prompt">[root@assets]></span> Загрузка данных о тяжёлых бойцах USM...</div>
-                            <div class="terminal-line"><span class="terminal-prompt">[DATA]></span> Объект: <span class="highlight">Тяжёлые бойцы USM (Маршалы)</span></div>
-                            <ul class="specs-list">
-                                <li><strong>Броня:</strong> Композитная керамическая броня класса III+</li>
-                                <li><strong>Вооружение:</strong> Автоматы M4 с подствольными гранатомётами</li>
-                                <li><strong>Подготовка:</strong> Спецназ, тактика городского боя</li>
-                                <li><strong>Задача:</strong> Штурм укреплённых позиций, подавление огневых точек</li>
-                                <li><strong>Численность:</strong> Отдельные тактические группы</li>
-                            </ul>
-                        `;
-                        break;
-                    case 'locks':
-                        content = `
-                            <div class="terminal-line"><span class="terminal-prompt">[root@assets]></span> Загрузка данных о системе замков...</div>
-                            <div class="terminal-line"><span class="terminal-prompt">[DATA]></span> Объект: <span class="highlight">5-кратная система защиты замков</span></div>
-                            <ul class="specs-list">
-                                <li><strong>Уровень 1:</strong> Механический замок высокой секретности</li>
-                                <li><strong>Уровень 2:</strong> Электронный кодовый замок (6-значный код)</li>
-                                <li><strong>Уровень 3:</strong> Биометрический сканер (отпечаток пальца)</li>
-                                <li><strong>Уровень 4:</strong> Сканер сетчатки глаза</li>
-                                <li><strong>Уровень 5:</strong> Система распознавания голоса</li>
-                                <li><strong>Время взлома:</strong> Оценочно 45+ минут профессионалом</li>
-                            </ul>
-                        `;
-                        break;
-                    case 'mp5':
-                        content = `
-                            <div class="terminal-line"><span class="terminal-prompt">[root@assets]></span> Загрузка данных о MP5 с перцовыми зарядами...</div>
-                            <div class="terminal-line"><span class="terminal-prompt">[DATA]></span> Объект: <span class="highlight">MP5K с перцовыми зарядами (для Клокеров)</span></div>
-                            <ul class="specs-list">
-                                <li><strong>База:</strong> HK MP5K (короткоствольный вариант)</li>
-                                <li><strong>Боеприпасы:</strong> 9mm перцовые гранулы (нелетальные)</li>
-                                <li><strong>Эффект:</strong> Сильное раздражение глаз и дыхательных путей</li>
-                                <li><strong>Дальность:</strong> До 50 метров эффективно</li>
-                                <li><strong>Применение:</strong> Подавление массовых беспорядков, задержание без жертв</li>
-                                <li><strong>На вооружении:</strong> Клокеры, спецподразделения</li>
-                            </ul>
-                        `;
-                        break;
-                }
-                terminalContent.innerHTML = content;
+                terminalContent.innerHTML = tabContent[tabName];
             });
         });
 
@@ -746,7 +725,7 @@
             });
         });
 
-        // Перетаскивание окна (простой драг)
+        // Перетаскивание окна
         let isDragging = false;
         let offsetX, offsetY;
 
