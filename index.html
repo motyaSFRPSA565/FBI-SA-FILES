@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SAnet.OS v.1.43 — Рабочий стол ФБР Сан-Андреас</title>
+    <title>SAnet.OS v.1.43 — ФБР Сан-Андреас</title>
     <style>
         * {
             margin: 0;
@@ -13,10 +13,10 @@
         }
 
         body {
-            font-family: 'Segoe UI', 'Arial', sans-serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             height: 100vh;
             overflow: hidden;
-            background: #1a3a5a;
+            background-color: #1a3a5a;
         }
 
         /* ===== ЭКРАН ВХОДА ===== */
@@ -26,7 +26,7 @@
             left: 0;
             width: 100vw;
             height: 100vh;
-            background: #0f263b;
+            background: linear-gradient(145deg, #0a2a45, #1a3f60);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -40,377 +40,269 @@
         }
 
         .login-panel {
-            width: 400px;
-            background: #1a3349;
-            border: 3px solid #d4a53c;
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.8);
+            width: 420px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
             padding: 35px 30px;
+            text-align: center;
+        }
+
+        .login-panel .fbi-eagle {
+            font-size: 48px;
+            color: #1a3f60;
+            margin-bottom: 15px;
         }
 
         .login-panel h2 {
-            color: #d4a53c;
-            text-align: center;
-            font-size: 28px;
-            margin-bottom: 10px;
-            letter-spacing: 2px;
+            color: #1a3f60;
+            font-size: 24px;
+            margin-bottom: 5px;
+            letter-spacing: 1px;
         }
 
         .login-panel p {
-            color: #a0b9d4;
-            text-align: center;
-            margin-bottom: 30px;
-            border-bottom: 2px solid #2a4f77;
+            color: #4a6f8f;
+            margin-bottom: 25px;
+            font-size: 14px;
+            border-bottom: 1px solid #d0ddee;
             padding-bottom: 15px;
         }
 
         .login-field {
             margin-bottom: 20px;
+            text-align: left;
         }
 
         .login-field label {
             display: block;
-            color: #d4a53c;
+            color: #1a3f60;
             margin-bottom: 8px;
+            font-weight: 600;
             font-size: 14px;
-            text-transform: uppercase;
         }
 
         .login-field input {
             width: 100%;
             padding: 14px;
-            background: #0a1a2a;
-            border: 2px solid #2a4f77;
-            color: white;
+            border: 2px solid #c0cfe0;
+            border-radius: 4px;
             font-size: 16px;
             outline: none;
         }
 
         .login-field input:focus {
-            border-color: #d4a53c;
+            border-color: #c49e3f;
         }
 
         .login-btn {
             width: 100%;
             padding: 14px;
-            background: #d4a53c;
+            background: #1a3f60;
             border: none;
-            color: #0a1a2a;
+            color: white;
             font-weight: bold;
             font-size: 16px;
+            border-radius: 4px;
             cursor: pointer;
             margin-top: 10px;
         }
 
         .login-btn:hover {
-            background: #e5b95c;
+            background: #2a5a80;
         }
 
         .login-error {
-            color: #ff6b6b;
+            color: #d32f2f;
             margin-top: 15px;
-            text-align: center;
             min-height: 20px;
+            font-size: 14px;
         }
 
-        /* ===== РАБОЧИЙ СТОЛ SAnet.OS ===== */
+        /* ===== РАБОЧИЙ СТОЛ ===== */
         .desktop {
             display: flex;
             flex-direction: column;
             height: 100vh;
             width: 100vw;
-            background: #1e4a7a; /* Голубовато-синий как на скрине */
-            background-image: linear-gradient(145deg, #1e4f82 0%, #123a5a 100%);
-            color: white;
-        }
-
-        /* ===== ПАНЕЛЬ ЗАДАЧ (ВЕРХНЯЯ) ===== */
-        .taskbar {
-            background: #0a1e30;
-            border-bottom: 3px solid #d4a53c;
-            padding: 10px 25px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            font-size: 14px;
-            color: #e0eaff;
-        }
-
-        .taskbar-left {
-            display: flex;
-            align-items: center;
-            gap: 20px;
-        }
-
-        .sanet-logo {
-            background: #d4a53c;
-            color: #0a1e30;
-            font-weight: bold;
-            padding: 5px 12px;
-            border-radius: 4px;
-            font-size: 16px;
-        }
-
-        .status-dot {
-            width: 10px;
-            height: 10px;
-            background: #4aff7a;
-            border-radius: 50%;
-            display: inline-block;
-            margin-right: 5px;
-            box-shadow: 0 0 10px #00ff80;
-        }
-
-        .taskbar-right {
-            display: flex;
-            gap: 20px;
-            color: #b0c9ff;
-        }
-
-        /* ===== ОСНОВНАЯ ОБЛАСТЬ РАБОЧЕГО СТОЛА ===== */
-        .workspace {
-            flex: 1;
-            padding: 25px 30px;
+            background-color: #e8f0f8;
             position: relative;
-            display: flex;
+            overflow: hidden;
         }
 
-        /* ===== ЛЕВАЯ ПАНЕЛЬ (ИНФОРМАЦИЯ КАК НА СКРИНЕ) ===== */
-        .info-panel {
-            width: 350px;
-            background: rgba(10, 25, 45, 0.75);
-            backdrop-filter: blur(10px);
-            border: 2px solid #d4a53c;
-            border-radius: 15px;
-            padding: 20px;
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-            box-shadow: 5px 5px 25px rgba(0, 0, 0, 0.6);
-            height: fit-content;
-        }
-
-        /* Шапка SA */
-        .sa-header {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            border-bottom: 2px solid #d4a53c;
-            padding-bottom: 15px;
-        }
-
-        .sa-logo-big {
-            width: 50px;
-            height: 50px;
-            background: #d4a53c;
-            color: #0a1e30;
-            font-size: 28px;
-            font-weight: 800;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 10px;
-        }
-
-        .sa-title h3 {
-            font-size: 20px;
-            color: white;
-        }
-
-        .sa-title p {
-            font-size: 12px;
-            color: #b0c9ff;
-        }
-
-        /* Блок пользователя */
-        .user-block {
-            background: #0a1e30;
-            border-left: 6px solid #d4a53c;
-            padding: 15px;
-            margin: 5px 0;
-        }
-
-        .user-name {
-            font-size: 20px;
-            font-weight: bold;
-            color: white;
-        }
-
-        .user-role {
-            color: #d4a53c;
-            font-size: 14px;
-            text-transform: uppercase;
-            margin-top: 5px;
-        }
-
-        /* Разделы меню */
-        .menu-block {
-            margin: 5px 0;
-        }
-
-        .menu-header {
-            color: #d4a53c;
-            font-weight: 600;
-            text-transform: uppercase;
-            font-size: 14px;
-            border-bottom: 1px solid #2a4f77;
-            padding-bottom: 5px;
-            margin-bottom: 10px;
-        }
-
-        .menu-list {
-            list-style: none;
-        }
-
-        .menu-list li {
-            padding: 6px 0 6px 20px;
-            color: #d0e2ff;
-            font-size: 14px;
-            position: relative;
-        }
-
-        .menu-list li:before {
-            content: "•";
+        /* Герб ФБР на фоне */
+        .desktop::before {
+            content: "⚖️🦅";
             position: absolute;
-            left: 5px;
-            color: #d4a53c;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 300px;
+            opacity: 0.1;
+            color: #1a3f60;
+            z-index: 0;
+            pointer-events: none;
+            font-weight: normal;
         }
 
-        /* База данных подозреваемых */
-        .database-block {
-            background: #0a1e30;
-            padding: 15px;
-            border-radius: 8px;
-            margin-top: 10px;
+        .desktop::after {
+            content: "FEDERAL BUREAU OF INVESTIGATION";
+            position: absolute;
+            top: 60%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 36px;
+            opacity: 0.08;
+            color: #1a3f60;
+            z-index: 0;
+            pointer-events: none;
+            font-weight: 800;
+            letter-spacing: 4px;
+            white-space: nowrap;
         }
 
-        .database-title {
-            color: #d4a53c;
-            font-weight: 600;
-            margin-bottom: 12px;
-            border-bottom: 1px solid #2a4f77;
-            padding-bottom: 5px;
-        }
-
-        .target-list {
+        /* ===== ВЕРХНЯЯ ПАНЕЛЬ ===== */
+        .top-bar {
+            background: #1a3f60;
+            color: white;
+            padding: 12px 25px;
             display: flex;
-            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+            font-size: 14px;
+            z-index: 10;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .top-bar-left {
+            display: flex;
+            align-items: center;
+            gap: 25px;
+        }
+
+        .sanet-brand {
+            font-weight: 700;
+            font-size: 16px;
+            color: #ffd966;
+            letter-spacing: 0.5px;
+        }
+
+        .user-session {
+            display: flex;
+            align-items: center;
             gap: 8px;
         }
 
-        .target-item {
-            display: flex;
-            justify-content: space-between;
-            border-bottom: 1px dotted #2a4f77;
-            padding-bottom: 5px;
+        .user-session span {
+            color: #ffd966;
+            font-weight: 600;
         }
 
-        .target-name {
+        .top-bar-nav {
+            display: flex;
+            gap: 25px;
+        }
+
+        .top-bar-nav a {
+            color: white;
+            text-decoration: none;
             font-weight: 500;
         }
 
-        .target-role {
-            color: #b0c9ff;
-            font-size: 13px;
+        .top-bar-nav a:hover {
+            color: #ffd966;
         }
 
-        .location-info {
-            margin-top: 15px;
-            padding-top: 10px;
-            border-top: 1px solid #2a4f77;
-            color: #b0c9ff;
-            font-size: 13px;
-        }
-
-        .location-info span {
-            color: #d4a53c;
-        }
-
-        /* Услуги (иконки) */
-        .services-block {
-            margin-top: 10px;
-        }
-
-        .services-icons {
+        .top-bar-right {
             display: flex;
             gap: 20px;
-            margin-top: 10px;
-        }
-
-        .service-icon {
-            display: flex;
-            flex-direction: column;
             align-items: center;
-            gap: 5px;
-            width: 70px;
-            padding: 10px 0;
-            background: rgba(20, 45, 75, 0.6);
-            border-radius: 8px;
-            border: 1px solid #2a4f77;
-            transition: 0.2s;
-            cursor: pointer;
         }
 
-        .service-icon:hover {
-            border-color: #d4a53c;
-            background: rgba(40, 70, 110, 0.8);
+        /* ===== ОСНОВНАЯ ОБЛАСТЬ ===== */
+        .workspace {
+            flex: 1;
+            padding: 30px;
+            position: relative;
+            z-index: 5;
         }
 
-        .service-icon span:first-child {
-            font-size: 26px;
-        }
-
-        .service-icon span:last-child {
-            font-size: 12px;
-        }
-
-        /* ===== ИКОНКИ НА РАБОЧЕМ СТОЛЕ (КАК НА СКРИНЕ) ===== */
+        /* Иконки слева (как в Windows) */
         .desktop-icons {
-            position: absolute;
-            top: 100px;
-            right: 50px;
             display: flex;
             flex-direction: column;
-            gap: 20px;
+            gap: 25px;
+            width: fit-content;
+        }
+
+        .icon-row {
+            display: flex;
+            gap: 30px;
         }
 
         .desktop-icon {
-            width: 80px;
-            height: 90px;
-            background: rgba(10, 30, 50, 0.6);
-            backdrop-filter: blur(5px);
-            border: 2px solid #3a6a9a;
-            border-radius: 12px;
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: center;
-            gap: 8px;
+            width: 90px;
+            padding: 10px 0;
+            border-radius: 5px;
             transition: 0.2s;
             cursor: pointer;
+            color: #1a3f60;
         }
 
         .desktop-icon:hover {
-            border-color: #d4a53c;
-            background: rgba(30, 60, 100, 0.8);
-            transform: scale(1.05);
+            background: rgba(26, 63, 96, 0.1);
         }
 
-        .desktop-icon span:first-child {
-            font-size: 32px;
+        .icon-image {
+            font-size: 48px;
+            margin-bottom: 8px;
         }
 
-        .desktop-icon span:last-child {
-            font-size: 12px;
-            color: #e0eaff;
+        .icon-label {
+            font-size: 13px;
+            text-align: center;
+            font-weight: 500;
+            background: rgba(255, 255, 255, 0.8);
+            padding: 3px 8px;
+            border-radius: 4px;
+            width: 100%;
         }
 
-        /* Нижний колонтитул */
-        .footer-note {
-            position: absolute;
-            bottom: 15px;
-            right: 30px;
-            color: rgba(180, 200, 240, 0.5);
-            font-size: 12px;
+        /* ===== НИЖНЯЯ ПАНЕЛЬ ===== */
+        .bottom-bar {
+            background: #1a3f60;
+            color: white;
+            padding: 10px 25px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            font-size: 13px;
+            z-index: 10;
+            border-top: 2px solid #c49e3f;
+        }
+
+        .bottom-left {
+            display: flex;
+            gap: 20px;
+        }
+
+        .bottom-right {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+        }
+
+        .real-time {
+            background: #0a2a45;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-family: monospace;
+            font-size: 15px;
+            letter-spacing: 1px;
+            color: #ffd966;
         }
     </style>
 </head>
@@ -418,138 +310,88 @@
     <!-- ЭКРАН ВХОДА -->
     <div class="login-screen" id="loginScreen">
         <div class="login-panel">
-            <h2>FBI SAN ANDREAS</h2>
-            <p>SAnet.OS v.1.43</p>
+            <div class="fbi-eagle">🦅⚖️</div>
+            <h2>ФБР ОКРУГА САН-АНДРЕАС</h2>
+            <p>SAnet.OS v.1.43 • Сан-Фиерро</p>
             <div class="login-field">
-                <label>Пароль</label>
+                <label>ПАРОЛЬ ДОСТУПА</label>
                 <input type="password" id="passwordInput" placeholder="Введите пароль" autofocus>
             </div>
-            <button class="login-btn" id="loginBtn">ВОЙТИ</button>
+            <button class="login-btn" id="loginBtn">ВОЙТИ В СИСТЕМУ</button>
             <div class="login-error" id="loginError"></div>
         </div>
     </div>
 
-    <!-- РАБОЧИЙ СТОЛ (ИЗНАЧАЛЬНО СКРЫТ) -->
+    <!-- РАБОЧИЙ СТОЛ -->
     <div class="desktop" id="desktop" style="display: none;">
-        <!-- Верхняя панель задач -->
-        <div class="taskbar">
-            <div class="taskbar-left">
-                <span class="sanet-logo">SA</span>
-                <span><span class="status-dot"></span> ONLINE — SAN FIERRO</span>
+        <!-- ВЕРХНЯЯ ПАНЕЛЬ -->
+        <div class="top-bar">
+            <div class="top-bar-left">
+                <div class="sanet-brand">ФБР округа Сан-Андреас | SAnet.OS v.1.43</div>
+                <div class="user-session" id="userSession">
+                    <!-- Заполняется через JS -->
+                </div>
             </div>
-            <div class="taskbar-right">
+            <div class="top-bar-nav">
+                <a href="#">Файлы</a>
+                <a href="#">Информация</a>
+            </div>
+            <div class="top-bar-right">
+                <span>🔔</span>
                 <span>🌉 SF</span>
-                <span>🔒 УРОВЕНЬ 4</span>
-                <span>⏰ 23:47</span>
             </div>
         </div>
 
-        <!-- Рабочая область -->
+        <!-- ОСНОВНАЯ ОБЛАСТЬ (РАБОЧИЙ СТОЛ) -->
         <div class="workspace">
-            <!-- ЛЕВАЯ ПАНЕЛЬ С ИНФОРМАЦИЕЙ (ПОЛНОСТЬЮ КАК НА СКРИНЕ) -->
-            <div class="info-panel">
-                <!-- Шапка SA -->
-                <div class="sa-header">
-                    <div class="sa-logo-big">SA</div>
-                    <div class="sa-title">
-                        <h3>SAnet.OS v.1.43</h3>
-                        <p>ФБР Сан-Андреас</p>
-                    </div>
-                </div>
-
-                <!-- Блок пользователя (заполняется через JS) -->
-                <div class="user-block" id="userInfoBlock">
-                    <div class="user-name" id="displayName"></div>
-                    <div class="user-role" id="displayRole"></div>
-                </div>
-
-                <!-- ФАЙЛЫ / ИНФОРМАЦИЯ -->
-                <div class="menu-block">
-                    <div class="menu-header">ФАЙЛЫ / ИНФОРМАЦИЯ</div>
-                    <ul class="menu-list">
-                        <li>База данных подозреваемых</li>
-                        <li>База данных огнестрельного оружия</li>
-                        <li>Снаряжение подозреваемого</li>
-                        <li>Активы агентства</li>
-                        <li>База данных ограблений</li>
-                        <li>Внутренние служебные записки</li>
-                    </ul>
-                </div>
-
-                <!-- НАСТРОЙКИ ФАЙЛОВ COOKIE -->
-                <div class="menu-block">
-                    <div class="menu-header">НАСТРОЙКИ ФАЙЛОВ COOKIE</div>
-                    <ul class="menu-list">
-                        <li>Принять все</li>
-                    </ul>
-                </div>
-
-                <!-- БАЗА ДАННЫХ ПОДОЗРЕВАЕМЫХ -->
-                <div class="database-block">
-                    <div class="database-title">БАЗА ДАННЫХ ПОДОЗРЕВАЕМЫХ</div>
-                    <div style="color: #b0c9ff; margin-bottom: 10px; font-size: 13px;">Активные цели в Сан-Фьерро:</div>
-                    <div class="target-list">
-                        <div class="target-item">
-                            <span class="target-name">Даллас</span>
-                            <span class="target-role">лидер</span>
-                        </div>
-                        <div class="target-item">
-                            <span class="target-name">Хокстон</span>
-                            <span class="target-role">взломщик</span>
-                        </div>
-                        <div class="target-item">
-                            <span class="target-name">Чейн</span>
-                            <span class="target-role">силовая поддержка</span>
-                        </div>
-                        <div class="target-item">
-                            <span class="target-name">Вольф</span>
-                            <span class="target-role">техник</span>
-                        </div>
-                    </div>
-                    <div class="location-info">
-                        <span>Последнее известное место:</span> Мост Гант, Сан-Фьерро
-                    </div>
-                </div>
-
-                <!-- УСЛУГИ (ИКОНКИ) -->
-                <div class="services-block">
-                    <div class="menu-header">УСЛУГИ</div>
-                    <div class="services-icons">
-                        <div class="service-icon">
-                            <span>📁</span>
-                            <span>Дела</span>
-                        </div>
-                        <div class="service-icon">
-                            <span>🔫</span>
-                            <span>Баллистика</span>
-                        </div>
-                        <div class="service-icon">
-                            <span>🌉</span>
-                            <span>SF Карта</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- ИКОНКИ НА РАБОЧЕМ СТОЛЕ -->
+            <!-- ИКОНКИ СЛЕВА (КАК В WINDOWS) -->
             <div class="desktop-icons">
-                <div class="desktop-icon">
-                    <span>📂</span>
-                    <span>Дела</span>
+                <div class="icon-row">
+                    <div class="desktop-icon">
+                        <span class="icon-image">📁</span>
+                        <span class="icon-label">Дела</span>
+                    </div>
+                    <div class="desktop-icon">
+                        <span class="icon-image">🔫</span>
+                        <span class="icon-label">Баллистика</span>
+                    </div>
+                    <div class="desktop-icon">
+                        <span class="icon-image">🌉</span>
+                        <span class="icon-label">SF Карта</span>
+                    </div>
                 </div>
-                <div class="desktop-icon">
-                    <span>🔫</span>
-                    <span>Оружие</span>
+                <div class="icon-row">
+                    <div class="desktop-icon">
+                        <span class="icon-image">🛡️</span>
+                        <span class="icon-label">Активы агентства</span>
+                    </div>
+                    <div class="desktop-icon">
+                        <span class="icon-image">📑</span>
+                        <span class="icon-label">Служебные записки</span>
+                    </div>
+                    <div class="desktop-icon">
+                        <span class="icon-image">🗄️</span>
+                        <span class="icon-label">База данных</span>
+                    </div>
                 </div>
-                <div class="desktop-icon">
-                    <span>🌐</span>
-                    <span>Crime.Net</span>
+                <div class="icon-row">
+                    <div class="desktop-icon">
+                        <span class="icon-image">👥</span>
+                        <span class="icon-label">Агенты</span>
+                    </div>
                 </div>
             </div>
+        </div>
 
-            <!-- Нижний колонтитул -->
-            <div class="footer-note">
-                FEDERAL BUREAU OF INVESTIGATION • SAN ANDREAS FIELD OFFICE
+        <!-- НИЖНЯЯ ПАНЕЛЬ -->
+        <div class="bottom-bar">
+            <div class="bottom-left">
+                <span>FEDERAL BUREAU OF INVESTIGATION</span>
+                <span>•</span>
+                <span>SAN ANDREAS FIELD OFFICE</span>
+            </div>
+            <div class="bottom-right">
+                <span class="real-time" id="realTime">--:--:--</span>
             </div>
         </div>
     </div>
@@ -580,8 +422,7 @@
         const passwordInput = document.getElementById('passwordInput');
         const loginBtn = document.getElementById('loginBtn');
         const loginError = document.getElementById('loginError');
-        const displayName = document.getElementById('displayName');
-        const displayRole = document.getElementById('displayRole');
+        const userSession = document.getElementById('userSession');
 
         function handleLogin() {
             const password = passwordInput.value;
@@ -594,15 +435,14 @@
                     desktop.style.display = 'flex';
                 }, 300);
 
+                // Отображаем ФИО пользователя в верхней панели
                 if (user.role === 'guest') {
-                    displayName.innerText = '';
-                    displayRole.innerText = '';
+                    userSession.innerHTML = `<span>ПОСТОРОННИЙ</span> (гостевой доступ)`;
                 } else {
-                    displayName.innerText = user.name;
-                    displayRole.innerText = user.role;
+                    userSession.innerHTML = `<span>${user.name}</span> (${user.role})`;
                 }
             } else {
-                loginError.innerText = 'Неверный пароль';
+                loginError.innerText = 'Неверный пароль доступа';
                 passwordInput.value = '';
                 passwordInput.focus();
             }
@@ -613,10 +453,25 @@
             if (e.key === 'Enter') handleLogin();
         });
 
-        // Заглушки для иконок (чтобы показать, что они не работают пока)
-        document.querySelectorAll('.desktop-icon, .service-icon').forEach(icon => {
+        // Реальное время в нижней панели
+        function updateTime() {
+            const now = new Date();
+            const timeString = now.toLocaleTimeString('ru-RU', { 
+                hour: '2-digit', 
+                minute: '2-digit', 
+                second: '2-digit',
+                hour12: false 
+            });
+            document.getElementById('realTime').textContent = timeString;
+        }
+
+        updateTime();
+        setInterval(updateTime, 1000);
+
+        // Заглушки для иконок (показываем, что приложения не работают)
+        document.querySelectorAll('.desktop-icon').forEach(icon => {
             icon.addEventListener('click', () => {
-                alert('Приложение будет доступно в следующей версии');
+                alert('Приложение будет доступно в следующей версии SAnet.OS');
             });
         });
     </script>
