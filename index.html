@@ -1097,6 +1097,35 @@ document.addEventListener('touchmove', (e) => {
 document.addEventListener('touchend', () => {
     isDbDragging = false;
 });
+    // РАЗВОРАЧИВАНИЕ ДЛЯ БАЗЫ ДАННЫХ
+let isDbMaximized = false;
+let previousDbSize = {};
+
+dbMaximizeBtn.addEventListener('click', () => {
+    if (!isDbMaximized) {
+        previousDbSize = {
+            width: databaseWindow.style.width,
+            height: databaseWindow.style.height,
+            top: databaseWindow.style.top,
+            left: databaseWindow.style.left
+        };
+        
+        databaseWindow.style.width = '100%';
+        databaseWindow.style.height = 'calc(100% - 120px)';
+        databaseWindow.style.top = '60px';
+        databaseWindow.style.left = '0';
+        databaseWindow.classList.add('window-maximized');
+        dbMaximizeBtn.textContent = '❐';
+    } else {
+        databaseWindow.style.width = previousDbSize.width || '900px';
+        databaseWindow.style.height = previousDbSize.height || '600px';
+        databaseWindow.style.top = previousDbSize.top || '100px';
+        databaseWindow.style.left = previousDbSize.left || '300px';
+        databaseWindow.classList.remove('window-maximized');
+        dbMaximizeBtn.textContent = '□';
+    }
+    isDbMaximized = !isDbMaximized;
+});
     
 </script>
 </body>
