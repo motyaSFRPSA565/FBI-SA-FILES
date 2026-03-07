@@ -14,6 +14,8 @@
 
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+            
             height: 100vh;
             overflow: hidden;
             background-color: #0a0f1a;
@@ -440,6 +442,54 @@
             border-width: 3px !important;
             margin: 0 !important;
         }
+
+        /* СТИЛИ ДЛЯ БАЗЫ ДАННЫХ */
+.database-list {
+    list-style: none;
+    margin: 15px 0;
+}
+
+.database-item {
+    padding: 15px 20px;
+    margin-bottom: 10px;
+    background: #0f1a2a;
+    border-left: 4px solid #c49e3f;
+    border-radius: 0 8px 8px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.db-name {
+    font-size: 18px;
+    color: #ffffff;
+    font-weight: 600;
+}
+
+.db-role {
+    color: #c49e3f;
+    font-size: 14px;
+    background: #1a2a3f;
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-weight: bold;
+}
+
+.db-description {
+    color: #8a9bb5;
+    font-size: 14px;
+    margin-top: 5px;
+}
+
+.db-section-title {
+    color: #c49e3f;
+    font-size: 20px;
+    margin: 25px 0 15px 0;
+    border-bottom: 2px solid #c49e3f;
+    padding-bottom: 8px;
+    font-weight: bold;
+}
+        
     </style>
 </head>
 <body>
@@ -828,15 +878,33 @@
         });
     </script>
     <!-- НИЖНЯЯ ПАНЕЛЬ -->
-<div class="bottom-bar" style="background: #1a2a3f; padding: 20px 30px; border-top: 4px solid #c49e3f; display: flex; justify-content: space-between; align-items: center; font-size: 16px; min-height: 70px;">
-    <div style="display: flex; gap: 25px;">
+<div class="bottom-bar" style="background: #1a2a3f; padding: 20px 30px; border-top: 4px solid #c49e3f; display: flex; justify-content: space-between; align-items: center; min-height: 80px;">
+    <div style="display: flex; gap: 25px; color: #8a9bb5; font-size: 16px;">
         <span>FEDERAL BUREAU OF INVESTIGATION</span>
         <span>•</span>
         <span>SAN ANDREAS FIELD OFFICE</span>
     </div>
     <div style="display: flex; align-items: center;">
-        <span style="background: #0f1a2a; padding: 10px 25px; border-radius: 40px; border: 2px solid #c49e3f; color: #c49e3f; font-family: monospace; font-size: 22px; font-weight: bold;" id="realTime">--:--:--</span>
+        <span id="realTime" style="background: #0f1a2a; padding: 12px 30px; border-radius: 40px; border: 2px solid #c49e3f; color: #c49e3f; font-family: monospace; font-size: 24px; font-weight: bold;">--:--:--</span>
     </div>
 </div>
+
+<script>
+    // Обновление времени
+    function updateTime() {
+        const now = new Date();
+        document.getElementById('realTime').textContent = 
+            now.toLocaleTimeString('ru-RU', { hour12: false });
+    }
+    updateTime();
+    setInterval(updateTime, 1000);
+
+    // Редактор окна
+    window.addEventListener('resize', () => {
+        if (isMaximized) {
+            terminalWindow.style.height = 'calc(100% - 120px)';
+        }
+    });
+</script>
 </body>
 </html>
