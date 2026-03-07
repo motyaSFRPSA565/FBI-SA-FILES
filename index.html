@@ -646,6 +646,27 @@
             </div>
         </div>
 
+        <!-- Окно с видео для Тимура -->
+<div class="app-window" id="timurVideoWindow" style="display: none;">
+    <div class="window-header" id="timurVideoHeader">
+        <div class="window-title">
+            <span>🎥</span>
+            <span>СЕКРЕТНАЯ ЗАПИСЬ — ТОЛЬКО ДЛЯ ТИМУРА</span>
+        </div>
+        <div class="window-controls">
+            <span id="timurVideoMinimize">─</span>
+            <span id="timurVideoMaximize">□</span>
+            <span id="timurVideoClose">✕</span>
+        </div>
+    </div>
+    <div class="terminal-content" style="display: flex; justify-content: center; align-items: center;">
+        <video controls width="100%" height="auto">
+            <source src="timurvideo.mp4" type="video/mp4">
+            Твой браузер не поддерживает видео
+        </video>
+    </div>
+</div>
+
         <!-- НИЖНЯЯ ПАНЕЛЬ -->
         <div class="bottom-bar">
             <div class="bottom-left">
@@ -1009,6 +1030,20 @@ if (memosMaximizeBtn) {
 
         // Запускаем после загрузки
         window.addEventListener('load', initApps);
+
+            // Показываем иконку только для Тимура (Регинальда)
+if (user.name === 'Регинальд Вон Равенхорст') {
+    document.getElementById('timurVideoIcon').style.display = 'flex';
+}
+
+// Логика открытия видео
+const timurIcon = document.getElementById('timurVideoIcon');
+const timurWindow = document.getElementById('timurVideoWindow');
+if (timurIcon) {
+    timurIcon.addEventListener('click', () => {
+        timurWindow.style.display = 'flex';
+    });
+}
     </script>
 </body>
     </html>
