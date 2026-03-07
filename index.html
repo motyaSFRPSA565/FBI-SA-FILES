@@ -890,6 +890,97 @@
             if (memosCloseBtn) memosCloseBtn.addEventListener('click', () => memosWindow.style.display = 'none');
             if (memosMinimizeBtn) memosMinimizeBtn.addEventListener('click', () => memosWindow.style.display = 'none');
 
+
+            // Разворачивание для активов
+let isMaximized = false;
+let prevSize = {};
+if (maximizeBtn) {
+    maximizeBtn.addEventListener('click', () => {
+        if (!isMaximized) {
+            prevSize = {
+                width: terminalWindow.style.width,
+                height: terminalWindow.style.height,
+                top: terminalWindow.style.top,
+                left: terminalWindow.style.left
+            };
+            terminalWindow.style.width = '100%';
+            terminalWindow.style.height = 'calc(100% - 120px)';
+            terminalWindow.style.top = '60px';
+            terminalWindow.style.left = '0';
+            terminalWindow.classList.add('window-maximized');
+            maximizeBtn.textContent = '❐';
+        } else {
+            terminalWindow.style.width = prevSize.width || '900px';
+            terminalWindow.style.height = prevSize.height || '600px';
+            terminalWindow.style.top = prevSize.top || '80px';
+            terminalWindow.style.left = prevSize.left || '200px';
+            terminalWindow.classList.remove('window-maximized');
+            maximizeBtn.textContent = '□';
+        }
+        isMaximized = !isMaximized;
+    });
+}
+
+// Разворачивание для базы данных
+let isDbMaximized = false;
+let prevDbSize = {};
+if (dbMaximizeBtn) {
+    dbMaximizeBtn.addEventListener('click', () => {
+        if (!isDbMaximized) {
+            prevDbSize = {
+                width: databaseWindow.style.width,
+                height: databaseWindow.style.height,
+                top: databaseWindow.style.top,
+                left: databaseWindow.style.left
+            };
+            databaseWindow.style.width = '100%';
+            databaseWindow.style.height = 'calc(100% - 120px)';
+            databaseWindow.style.top = '60px';
+            databaseWindow.style.left = '0';
+            databaseWindow.classList.add('window-maximized');
+            dbMaximizeBtn.textContent = '❐';
+        } else {
+            databaseWindow.style.width = prevDbSize.width || '900px';
+            databaseWindow.style.height = prevDbSize.height || '600px';
+            databaseWindow.style.top = prevDbSize.top || '80px';
+            databaseWindow.style.left = prevDbSize.left || '200px';
+            databaseWindow.classList.remove('window-maximized');
+            dbMaximizeBtn.textContent = '□';
+        }
+        isDbMaximized = !isDbMaximized;
+    });
+}
+
+// Разворачивание для записок
+let isMemosMaximized = false;
+let prevMemosSize = {};
+if (memosMaximizeBtn) {
+    memosMaximizeBtn.addEventListener('click', () => {
+        if (!isMemosMaximized) {
+            prevMemosSize = {
+                width: memosWindow.style.width,
+                height: memosWindow.style.height,
+                top: memosWindow.style.top,
+                left: memosWindow.style.left
+            };
+            memosWindow.style.width = '100%';
+            memosWindow.style.height = 'calc(100% - 120px)';
+            memosWindow.style.top = '60px';
+            memosWindow.style.left = '0';
+            memosWindow.classList.add('window-maximized');
+            memosMaximizeBtn.textContent = '❐';
+        } else {
+            memosWindow.style.width = prevMemosSize.width || '900px';
+            memosWindow.style.height = prevMemosSize.height || '600px';
+            memosWindow.style.top = prevMemosSize.top || '80px';
+            memosWindow.style.left = prevMemosSize.left || '200px';
+            memosWindow.classList.remove('window-maximized');
+            memosMaximizeBtn.textContent = '□';
+        }
+        isMemosMaximized = !isMemosMaximized;
+    });
+}
+
             // Переключение вкладок активов
             terminalTabs.forEach(tab => {
                 tab.addEventListener('click', function() {
