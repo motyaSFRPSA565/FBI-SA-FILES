@@ -948,12 +948,12 @@ const dbContent = {
             isDragging = false;
         });
 
-        // Заглушки для других иконок
-        document.querySelectorAll('.desktop-icon:not(#assetsIcon)').forEach(icon => {
-            icon.addEventListener('click', () => {
-                alert('Приложение будет доступно в следующей версии');
-            });
-        });
+        // Заглушки для других иконок (кроме активов и базы данных)
+document.querySelectorAll('.desktop-icon:not(#assetsIcon):not([data-app="database"])').forEach(icon => {
+    icon.addEventListener('click', () => {
+        alert('Приложение будет доступно в следующей версии');
+    });
+});
 
         // Ресайз окна
         window.addEventListener('resize', () => {
