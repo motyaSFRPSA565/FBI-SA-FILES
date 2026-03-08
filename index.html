@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SAnet.OS v.2.0 — ФБР Сан-Андреас</title>
+    <title>SAnet.OS v.3.0 — ФБР Сан-Андреас</title>
     <style>
         * {
             margin: 0;
@@ -121,7 +121,6 @@
             min-height: 20px;
             font-size: 14px;
         }
-
 
         /* ===== РАБОЧИЙ СТОЛ ===== */
 .desktop {
@@ -267,7 +266,7 @@
     width: 100%;
     color: #c49e3f;
     border: 1px solid #2a3f5a;
-}
+ }
 
 .bottom-bar {
     background: #1a2a3f;
@@ -281,135 +280,132 @@
     border-top: 3px solid #c49e3f;
     min-height: 60px;
     flex-shrink: 0;
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    right: 0;
+    margin-top: auto;
     width: 100%;
 }
 
-        .bottom-left {
-            display: flex;
-            gap: 20px;
-        }
+.bottom-left {
+    display: flex;
+    gap: 20px;
+}
 
-        .bottom-right {
-            display: flex;
-            gap: 20px;
-            align-items: center;
-        }
+.bottom-right {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
 
-        .real-time {
-            background: #0f1a2a;
-            padding: 8px 20px;
-            border-radius: 30px;
-            font-family: monospace;
-            font-size: 20px;
-            letter-spacing: 1px;
-            color: #c49e3f;
-            border: 2px solid #c49e3f;
-            font-weight: bold;
-        }
+.real-time {
+    background: #0f1a2a;
+    padding: 8px 20px;
+    border-radius: 30px;
+    font-family: monospace;
+    font-size: 20px;
+    letter-spacing: 1px;
+    color: #c49e3f;
+    border: 2px solid #c49e3f;
+    font-weight: bold;
+}
 
-        /* ===== ОКНА ПРИЛОЖЕНИЙ ===== */
-        .app-window {
-            position: absolute;
-            top: 80px;
-            left: 200px;
-            width: 900px;
-            height: 600px;
-            background: #0f1a2a;
-            border: 4px solid #c49e3f;
-            border-radius: 15px 15px 10px 10px;
-            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.9);
-            display: flex;
-            flex-direction: column;
-            z-index: 100;
-            resize: both;
-            overflow: hidden;
-            min-width: 600px;
-            min-height: 400px;
-        }
+/* ===== ОКНА ПРИЛОЖЕНИЙ ===== */
+.app-window {
+    position: absolute;
+    top: 80px;
+    left: 200px;
+    width: 900px;
+    height: 600px;
+    background: #0f1a2a;
+    border: 4px solid #c49e3f;
+    border-radius: 15px 15px 10px 10px;
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.9);
+    display: flex;
+    flex-direction: column;
+    z-index: 100;
+    resize: both;
+    overflow: hidden;
+    min-width: 600px;
+    min-height: 400px;
+}
 
-        .window-header {
-            background: linear-gradient(90deg, #1a2a3f, #0f1a2a);
-            padding: 12px 18px;
-            border-radius: 12px 12px 0 0;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            color: white;
-            cursor: move;
-            border-bottom: 2px solid #c49e3f;
-        }
+.window-header {
+    background: linear-gradient(90deg, #1a2a3f, #0f1a2a);
+    padding: 12px 18px;
+    border-radius: 12px 12px 0 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+    cursor: move;
+    border-bottom: 2px solid #c49e3f;
+}
 
-        .window-title {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            color: #c49e3f;
-            font-weight: 600;
-        }
+.window-title {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #c49e3f;
+    font-weight: 600;
+}
 
-        .window-controls {
-            display: flex;
-            gap: 10px;
-        }
+.window-controls {
+    display: flex;
+    gap: 10px;
+}
 
-        .window-controls span {
-            cursor: pointer;
-            padding: 5px 12px;
-            font-size: 18px;
-            color: #8a9bb5;
-            transition: 0.2s;
-            border-radius: 4px;
-        }
+.window-controls span {
+    cursor: pointer;
+    padding: 5px 12px;
+    font-size: 18px;
+    color: #8a9bb5;
+    transition: 0.2s;
+    border-radius: 4px;
+}
 
-        .window-controls span:hover {
-            background: #c49e3f;
-            color: #0f1a2a;
-        }
+.window-controls span:hover {
+    background: #c49e3f;
+    color: #0f1a2a;
+}
 
-        .terminal-tabs {
-            display: flex;
-            background: #0f1a2a;
-            border-bottom: 2px solid #c49e3f;
-            padding-left: 15px;
-            flex-wrap: wrap;
-        }
+.terminal-tabs {
+    display: flex;
+    background: #0f1a2a;
+    border-bottom: 2px solid #c49e3f;
+    padding-left: 15px;
+    flex-wrap: wrap;
+}
 
-        .terminal-tab {
-            padding: 12px 20px;
-            color: #8a9bb5;
-            cursor: pointer;
-            border-right: 1px solid #2a3f5a;
-            font-size: 13px;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            transition: 0.2s;
-        }
+.terminal-tab {
+    padding: 12px 20px;
+    color: #8a9bb5;
+    cursor: pointer;
+    border-right: 1px solid #2a3f5a;
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    transition: 0.2s;
+}
 
-        .terminal-tab.active {
-            background: #1a2a3f;
-            color: #c49e3f;
-            font-weight: bold;
-        }
+.terminal-tab.active {
+    background: #1a2a3f;
+    color: #c49e3f;
+    font-weight: bold;
+}
 
-        .terminal-tab:hover:not(.active) {
-            background: #1a2a3f;
-            color: white;
-        }
+.terminal-tab:hover:not(.active) {
+    background: #1a2a3f;
+    color: white;
+}
 
-        .terminal-content {
-            flex: 1;
-            padding: 25px;
-            background: #0a121f;
-            color: #4affb5;
-            font-family: 'Courier New', monospace;
-            font-size: 14px;
-            overflow-y: auto;
-            line-height: 1.6;
-        }
+.terminal-content {
+    flex: 1;
+    padding: 25px;
+    background: #0a121f;
+    color: #4affb5;
+    font-family: 'Courier New', monospace;
+    font-size: 14px;
+    overflow-y: auto;
+    line-height: 1.6;
+}
 
         .window-maximized {
             width: 100% !important;
@@ -501,6 +497,141 @@
             margin-top: 10px;
             text-transform: uppercase;
         }
+
+        /* Стили для дел */
+        .cases-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .cases-table th {
+            text-align: left;
+            padding: 12px 10px;
+            color: #c49e3f;
+            border-bottom: 2px solid #c49e3f;
+            font-size: 14px;
+        }
+
+        .cases-table td {
+            padding: 12px 10px;
+            border-bottom: 1px solid #2a3f5a;
+            color: #e0e5f0;
+        }
+
+        .cases-table tr:hover {
+            background: #1a2a3f;
+        }
+
+        .status-active {
+            color: #4affb5;
+            font-weight: bold;
+        }
+
+        .status-frozen {
+            color: #ffb86b;
+            font-weight: bold;
+        }
+
+        .status-closed {
+            color: #8a9bb5;
+        }
+
+        .witness-badge {
+            background: #c49e3f;
+            color: #0f1a2a;
+            padding: 3px 8px;
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: bold;
+        }
+
+        .evidence-badge {
+            background: #1a2a3f;
+            color: #c49e3f;
+            padding: 3px 8px;
+            border-radius: 12px;
+            font-size: 12px;
+            border: 1px solid #c49e3f;
+        }
+
+        /* Стили для блокнота */
+        .notepad-area {
+            width: 100%;
+            height: 100%;
+            background: #0f1a2a;
+            border: 2px solid #2a3f5a;
+            color: #e0e5f0;
+            padding: 20px;
+            font-family: 'Courier New', monospace;
+            font-size: 16px;
+            resize: none;
+            outline: none;
+        }
+
+        .notepad-area:focus {
+            border-color: #c49e3f;
+        }
+
+        /* Стили для соц. отдела */
+        .social-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .social-table th {
+            text-align: left;
+            padding: 12px 10px;
+            color: #c49e3f;
+            border-bottom: 2px solid #c49e3f;
+        }
+
+        .social-table td {
+            padding: 12px 10px;
+            border-bottom: 1px solid #2a3f5a;
+            color: #e0e5f0;
+        }
+
+        .course-badge {
+            background: #2a5a3f;
+            color: #4affb5;
+            padding: 3px 10px;
+            border-radius: 20px;
+            font-size: 12px;
+        }
+
+        .fbi-access {
+            background: #c49e3f;
+            color: #0f1a2a;
+            padding: 3px 10px;
+            border-radius: 20px;
+            font-weight: bold;
+        }
+
+        /* Стили для FBImessage */
+        .telegram-box {
+            text-align: center;
+            padding: 40px;
+            background: #0f1a2a;
+            border: 2px solid #c49e3f;
+            border-radius: 10px;
+        }
+
+        .telegram-link {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 15px 40px;
+            background: #c49e3f;
+            color: #0f1a2a;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 30px;
+            font-size: 18px;
+        }
+
+        .telegram-link:hover {
+            background: #dbb42c;
+            transform: scale(1.05);
+        }
     </style>
 </head>
 <body>
@@ -509,7 +640,7 @@
         <div class="login-panel">
             <div class="fbi-eagle">🦅⚖️</div>
             <h2>ФБР ОКРУГА САН-АНДРЕАС</h2>
-            <p>SAnet.OS v.2.0 • Сан-Фиерро</p>
+            <p>SAnet.OS v.3.0 • Сан-Фиерро</p>
             <div class="login-field">
                 <label>ПАРОЛЬ ДОСТУПА</label>
                 <input type="password" id="passwordInput" placeholder="Введите пароль" autofocus>
@@ -524,7 +655,7 @@
         <!-- ВЕРХНЯЯ ПАНЕЛЬ -->
         <div class="top-bar">
             <div class="top-bar-left">
-                <div class="sanet-brand">ФБР округа Сан-Андреас | SAnet.OS v.2.0</div>
+                <div class="sanet-brand">ФБР округа Сан-Андреас | SAnet.OS v.3.0</div>
                 <div class="user-session" id="userSession"></div>
             </div>
             <div class="top-bar-nav">
@@ -543,7 +674,7 @@
             <div class="desktop-icons">
                 <!-- Первый ряд -->
                 <div class="icon-row">
-                    <div class="desktop-icon" data-app="cases">
+                    <div class="desktop-icon" data-app="cases" id="casesIcon">
                         <span class="icon-image">📁</span>
                         <span class="icon-label">Дела</span>
                     </div>
@@ -555,106 +686,117 @@
                         <span class="icon-image">🌉</span>
                         <span class="icon-label">SF Карта</span>
                     </div>
-                 </div>
+                </div>
                 
                 <!-- Второй ряд -->
                 <div class="icon-row">
                     <div class="desktop-icon" id="assetsIcon">
-                        <img src="Без названия190_20260307134300.png" class="icon-image" style="width: 48px; height: 48px;">
+                        <span class="icon-image">🛡️</span>
                         <span class="icon-label">Активы агентства</span>
                     </div>
                     <div class="desktop-icon" data-app="memos" id="memosIcon">
-                        <img src="Без названия190_20260307134616.png" class="icon-image" style="width: 48px; height: 48px;">
+                        <span class="icon-image">📑</span>
                         <span class="icon-label">Служебные записки</span>
                     </div>
                     <div class="desktop-icon" data-app="database" id="databaseIcon">
-                        <img src="Без названия190_20260307135429.png" class="icon-image" style="width: 48px; height: 48px;">
+                        <span class="icon-image">🗄️</span>
                         <span class="icon-label">База данных</span>
                     </div>
                 </div>
                 
                 <!-- Третий ряд -->
                 <div class="icon-row">
+                    <div class="desktop-icon" data-app="notepad" id="notepadIcon">
+                        <span class="icon-image">📝</span>
+                        <span class="icon-label">Блокнот</span>
+                    </div>
+                    <div class="desktop-icon" data-app="fbimessage" id="fbimessageIcon">
+                        <span class="icon-image">💬</span>
+                        <span class="icon-label">FBImessage</span>
+                    </div>
                     <div class="desktop-icon" data-app="agents">
-                        <img src="UPicon.webp" class="icon-image" style="width: 48px; height: 48px;">
+                        <span class="icon-image">👥</span>
                         <span class="icon-label">Агенты</span>
                     </div>
-                    <!-- Секретная иконка для Тимура (только для него) -->
-                    <div class="desktop-icon" id="timurVideoIcon" style="display: none;" data-app="timurvideo">
-                        <span class="icon-image">🎥</span>
-                        <span class="icon-label">Секретное видео</span>
+                </div>
+
+                <!-- Четвёртый ряд (Соц. отдел) -->
+                <div class="icon-row">
+                    <div class="desktop-icon" data-app="social" id="socialIcon" style="display: none;">
+                        <span class="icon-image">📚</span>
+                        <span class="icon-label">Соц. отдел</span>
                     </div>
                 </div>
+            </div>
 
             <!-- ОКНО АКТИВОВ -->
-            <div class="app-window" id="terminalWindow" style="display: none;">
-                <div class="window-header" id="windowHeader">
-                    <div class="window-title">
-                        <span>🛡️</span>
-                        <span>Активы агентства — Терминал доступа LEVEL 4</span>
-                    </div>
-                    <div class="window-controls">
-                        <span id="minimizeBtn">─</span>
-                        <span id="maximizeBtn">□</span>
-                        <span id="closeBtn">✕</span>
-                    </div>
-                </div>
-                
-                <div class="terminal-tabs">
-                    <div class="terminal-tab active" data-tab="shield">СУПЕР ЩИТ USM</div>
-                    <div class="terminal-tab" data-tab="cloaker">КЛОКЕР</div>
-                    <div class="terminal-tab" data-tab="heavy">ТЯЖЁЛЫЕ БОЙЦЫ USM</div>
-                    <div class="terminal-tab" data-tab="locks">5-КРАТНАЯ СИСТЕМА ЗАМКОВ</div>
-                    <div class="terminal-tab" data-tab="mp5">MP5 С ПЕРЦОВЫМИ ЗАРЯДАМИ</div>
-                </div>
-
-                <div class="terminal-content" id="terminalContent"></div>
-            </div>
-
-            <!-- ОКНО БАЗЫ ДАННЫХ -->
-            <div class="app-window" id="databaseWindow" style="display: none;">
-                <div class="window-header" id="dbWindowHeader">
-                    <div class="window-title">
-                        <span>🗄️</span>
-                        <span>База данных подозреваемых — УРОВЕНЬ 4</span>
-                    </div>
-                    <div class="window-controls">
-                        <span id="dbMinimizeBtn">─</span>
-                        <span id="dbMaximizeBtn">□</span>
-                        <span id="dbCloseBtn">✕</span>
-                    </div>
-                </div>
-                
-                <div class="terminal-tabs">
-                    <div class="terminal-tab active" data-db="russian">🇷🇺 РУССКАЯ БРАТВА</div>
-                    <div class="terminal-tab" data-db="triads">🀄 ТРИАДЫ</div>
-                    <div class="terminal-tab" data-db="veterans">👴 ВЕТЕРАНЫ</div>
-                    <div class="terminal-tab" data-db="corrupt">🎯 КОРРУПЦИЯ</div>
-                    <div class="terminal-tab" data-db="payday">🦅 PAYDAY</div>
-                </div>
-
-                <div class="terminal-content" id="databaseContent"></div>
-            </div>
-
-            <!-- ОКНО СЛУЖЕБНЫХ ЗАПИСОК -->
-            <div class="app-window" id="memosWindow" style="display: none;">
-                <div class="window-header" id="memosWindowHeader">
-                    <div class="window-title">
-                        <span>📑</span>
-                        <span>Служебные записки — Документооборот ФБР</span>
-                    </div>
-                    <div class="window-controls">
-                        <span id="memosMinimizeBtn">─</span>
-                        <span id="memosMaximizeBtn">□</span>
-                        <span id="memosCloseBtn">✕</span>
-                    </div>
-                </div>
-
-                <div class="terminal-content" id="memosContent"></div>
-            </div>
+<div class="app-window" id="terminalWindow" style="display: none;">
+    <div class="window-header" id="windowHeader">
+        <div class="window-title">
+            <span>🛡️</span>
+            <span>Активы агентства — Терминал доступа LEVEL 4</span>
         </div>
+        <div class="window-controls">
+            <span id="minimizeBtn">─</span>
+            <span id="maximizeBtn">□</span>
+            <span id="closeBtn">✕</span>
+        </div>
+    </div>
+    
+    <div class="terminal-tabs">
+        <div class="terminal-tab active" data-tab="shield">СУПЕР ЩИТ USM</div>
+        <div class="terminal-tab" data-tab="cloaker">КЛОКЕР</div>
+        <div class="terminal-tab" data-tab="heavy">ТЯЖЁЛЫЕ БОЙЦЫ USM</div>
+        <div class="terminal-tab" data-tab="locks">5-КРАТНАЯ СИСТЕМА ЗАМКОВ</div>
+        <div class="terminal-tab" data-tab="mp5">MP5 С ПЕРЦОВЫМИ ЗАРЯДАМИ</div>
+    </div>
 
-        <!-- Окно с видео для Тимура -->
+    <div class="terminal-content" id="terminalContent"></div>
+</div>
+
+<!-- ОКНО БАЗЫ ДАННЫХ -->
+<div class="app-window" id="databaseWindow" style="display: none;">
+    <div class="window-header" id="dbWindowHeader">
+        <div class="window-title">
+            <span>🗄️</span>
+            <span>База данных подозреваемых — УРОВЕНЬ 4</span>
+        </div>
+        <div class="window-controls">
+            <span id="dbMinimizeBtn">─</span>
+            <span id="dbMaximizeBtn">□</span>
+            <span id="dbCloseBtn">✕</span>
+        </div>
+    </div>
+    
+    <div class="terminal-tabs">
+        <div class="terminal-tab active" data-db="russian">🇷🇺 РУССКАЯ БРАТВА</div>
+        <div class="terminal-tab" data-db="triads">🀄 ТРИАДЫ</div>
+        <div class="terminal-tab" data-db="veterans">👴 ВЕТЕРАНЫ</div>
+        <div class="terminal-tab" data-db="corrupt">🎯 КОРРУПЦИЯ</div>
+        <div class="terminal-tab" data-db="payday">🦅 PAYDAY</div>
+    </div>
+
+    <div class="terminal-content" id="databaseContent"></div>
+</div>
+
+<!-- ОКНО СЛУЖЕБНЫХ ЗАПИСОК -->
+<div class="app-window" id="memosWindow" style="display: none;">
+    <div class="window-header" id="memosWindowHeader">
+        <div class="window-title">
+            <span>📑</span>
+            <span>Служебные записки — Документооборот ФБР</span>
+        </div>
+        <div class="window-controls">
+            <span id="memosMinimizeBtn">─</span>
+            <span id="memosMaximizeBtn">□</span>
+            <span id="memosCloseBtn">✕</span>
+        </div>
+    </div>
+
+    <div class="terminal-content" id="memosContent"></div>
+</div>
+
+<!-- ОКНО ВИДЕО ДЛЯ ТИМУРА -->
 <div class="app-window" id="timurVideoWindow" style="display: none;">
     <div class="window-header" id="timurVideoHeader">
         <div class="window-title">
@@ -667,141 +809,189 @@
             <span id="timurVideoClose">✕</span>
         </div>
     </div>
-    <div class="terminal-content" style="display: flex; justify-content: center; align-items: center;">
-        <video controls width="100%" height="auto">
+    <div class="terminal-content" style="display: flex; justify-content: center; align-items: center; padding: 0;">
+        <video controls width="100%" height="100%" style="max-width: 100%; max-height: 100%; object-fit: contain;">
             <source src="timurvideo.mp4" type="video/mp4">
-            Твой браузер не поддерживает видео
+            Ваш браузер не поддерживает видео
         </video>
     </div>
 </div>
 
-        <!-- НИЖНЯЯ ПАНЕЛЬ -->
-        <div class="bottom-bar">
-            <div class="bottom-left">
-                <span>FEDERAL BUREAU OF INVESTIGATION</span>
-                <span>•</span>
-                <span>SAN ANDREAS FIELD OFFICE</span>
+                    <!-- ОКНО ДЕЛ -->
+        <div class="app-window" id="casesWindow" style="display: none;">
+            <div class="window-header" id="casesWindowHeader">
+                <div class="window-title">
+                    <span>📁</span>
+                    <span>Дела — Центр управления расследованиями</span>
+                </div>
+                <div class="window-controls">
+                    <span id="casesMinimizeBtn">─</span>
+                    <span id="casesMaximizeBtn">□</span>
+                    <span id="casesCloseBtn">✕</span>
+                </div>
             </div>
-            <div class="bottom-right">
-                <span class="real-time" id="realTime">--:--:--</span>
+            <div class="terminal-content" id="casesContent"></div>
+        </div>
+
+        <!-- ОКНО БЛОКНОТА -->
+        <div class="app-window" id="notepadWindow" style="display: none;">
+            <div class="window-header" id="notepadWindowHeader">
+                <div class="window-title">
+                    <span>📝</span>
+                    <span>Блокнот — Черновые записи</span>
+                </div>
+                <div class="window-controls">
+                    <span id="notepadMinimizeBtn">─</span>
+                    <span id="notepadMaximizeBtn">□</span>
+                    <span id="notepadCloseBtn">✕</span>
+                </div>
             </div>
+            <div class="terminal-content" style="padding: 0;">
+                <textarea class="notepad-area" id="notepadText" placeholder="Введите ваши заметки..."></textarea>
+            </div>
+        </div>
+
+        <!-- ОКНО FBIMESSAGE -->
+        <div class="app-window" id="fbimessageWindow" style="display: none;">
+            <div class="window-header" id="fbimessageWindowHeader">
+                <div class="window-title">
+                    <span>💬</span>
+                    <span>FBImessage — Защищённый канал связи</span>
+                </div>
+                <div class="window-controls">
+                    <span id="fbimessageMinimizeBtn">─</span>
+                    <span id="fbimessageMaximizeBtn">□</span>
+                    <span id="fbimessageCloseBtn">✕</span>
+                </div>
+            </div>
+            <div class="terminal-content" style="display: flex; justify-content: center; align-items: center;">
+                <div class="telegram-box">
+                    <div style="font-size: 48px; margin-bottom: 20px;">💬</div>
+                    <div style="color: #c49e3f; font-size: 18px; margin-bottom: 10px;">ЗАЩИЩЁННЫЙ КАНАЛ СВЯЗИ</div>
+                    <div style="color: #8a9bb5; margin-bottom: 30px;">Для продолжения перейдите в Telegram-чат</div>
+                    <a href="https://t.me/+HrV-gXgyBSZiMDMy" target="_blank" class="telegram-link">
+                        📱 ПЕРЕЙТИ В ЧАТ
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- ОКНО СОЦИАЛЬНОГО ОТДЕЛА -->
+        <div class="app-window" id="socialWindow" style="display: none;">
+            <div class="window-header" id="socialWindowHeader">
+                <div class="window-title">
+                    <span>📚</span>
+                    <span>Социальный отдел — Депутат Глеб Малыхин</span>
+                </div>
+                <div class="window-controls">
+                    <span id="socialMinimizeBtn">─</span>
+                    <span id="socialMaximizeBtn">□</span>
+                    <span id="socialCloseBtn">✕</span>
+                </div>
+            </div>
+            <div class="terminal-content" id="socialContent"></div>
         </div>
     </div>
 
-        <script>
-        // ===== ДАННЫЕ ПОЛЬЗОВАТЕЛЕЙ =====
-        const users = {
-            'FBI565FULLCLEAR!': { name: 'Майк Малас', role: 'ДИРЕКТОР ФБР' },
-            'FBI999SPEC!': { name: 'Регинальд Вон Равенхорст', role: 'СПЕЦИАЛЬНЫЙ АГЕНТ' },
-            'MERIE910SF': { name: 'Иван Драго', role: 'МЭР ГОРОДА САН-ФИЕРРО' },
-            'guest1!': { name: '', role: 'guest' }
-        };
+    <!-- НИЖНЯЯ ПАНЕЛЬ -->
+    <div class="bottom-bar">
+        <div class="bottom-left">
+            <span>FEDERAL BUREAU OF INVESTIGATION</span>
+            <span>•</span>
+            <span>SAN ANDREAS FIELD OFFICE</span>
+        </div>
+        <div class="bottom-right">
+            <span class="real-time" id="realTime">--:--:--</span>
+        </div>
+    </div>
+</div>
 
-        // ===== ЭЛЕМЕНТЫ =====
-        const loginScreen = document.getElementById('loginScreen');
-        const desktop = document.getElementById('desktop');
-        const passwordInput = document.getElementById('passwordInput');
-        const loginBtn = document.getElementById('loginBtn');
-        const loginError = document.getElementById('loginError');
-        const userSession = document.getElementById('userSession');
-        const realTime = document.getElementById('realTime');
+    <script>
+    // ===== ДАННЫЕ ПОЛЬЗОВАТЕЛЕЙ =====
+    const users = {
+        'FBI565FULLCLEAR!': { name: 'Майк Малас', role: 'ДИРЕКТОР ФБР' },
+        'FBI999SPEC!': { name: 'Регинальд Вон Равенхорст', role: 'СПЕЦИАЛЬНЫЙ АГЕНТ' },
+        'MERIE910SF': { name: 'Иван Драго', role: 'МЭР ГОРОДА САН-ФИЕРРО' },
+        'SOCIAL665ADMIN!': { name: 'Глеб Малыхин', role: 'ДЕПУТАТ ПО СОЦ. ВОПРОСАМ' },
+        'guest1!': { name: '', role: 'guest' }
+    };
 
-        // ===== ВХОД В СИСТЕМУ =====
-        function handleLogin() {
-            const password = passwordInput.value;
-            const user = users[password];
+    // ===== ЭЛЕМЕНТЫ =====
+    const loginScreen = document.getElementById('loginScreen');
+    const desktop = document.getElementById('desktop');
+    const passwordInput = document.getElementById('passwordInput');
+    const loginBtn = document.getElementById('loginBtn');
+    const loginError = document.getElementById('loginError');
+    const userSession = document.getElementById('userSession');
+    const realTime = document.getElementById('realTime');
 
-            if (user) {
-                loginScreen.classList.add('hidden');
-                setTimeout(() => {
-                    loginScreen.style.display = 'none';
-                    desktop.style.display = 'flex';
-                }, 300);
+    // ===== ВРЕМЯ =====
+    function updateTime() {
+        const now = new Date();
+        realTime.textContent = now.toLocaleTimeString('ru-RU', { hour12: false });
+    }
+    updateTime();
+    setInterval(updateTime, 1000);
 
-                if (user.role === 'guest') {
-                    userSession.innerHTML = `ПОСТОРОННИЙ (гостевой доступ)`;
-                } else {
-                    userSession.innerHTML = `<span>${user.name}</span> (${user.role})`;
-                }
-            } else {
-                loginError.innerText = 'Неверный пароль доступа';
-                passwordInput.value = '';
-                passwordInput.focus();
-            }
-        }
+    // ===== КОНТЕНТ ДЛЯ АКТИВОВ =====
+    const tabContent = {
+        shield: `
+            <div class="terminal-line"><span class="terminal-prompt">[root@assets]></span> Загрузка данных о Супер Щитах USM...</div>
+            <div class="terminal-line"><span class="terminal-prompt">[SYSTEM]></span> Доступ: <span class="highlight">РАЗРЕШЁН (УРОВЕНЬ 4)</span></div>
+            <div class="terminal-line"><span class="terminal-prompt">[DATA]></span> Объект: <span class="highlight">Супер щит USM (Маршалы)</span></div>
+            <ul class="specs-list">
+                <li><strong>Баллистическая защита:</strong> Уровень IV (до 40 попаданий из автомата)</li>
+                <li><strong>Смотровое окно:</strong> Бронестекло 50мм, пуленепробиваемое</li>
+                <li><strong>Вес:</strong> 35 кг с тактическим снаряжением</li>
+                <li><strong>Особенность:</strong> Встроенный фонарь-ослепитель и система подавления</li>
+                <li><strong>На вооружении:</strong> Подразделения USM (Маршалы США)</li>
+            </ul>
+        `,
+        cloaker: `
+            <div class="terminal-line"><span class="terminal-prompt">[root@assets]></span> Загрузка данных о Клокерах...</div>
+            <div class="terminal-line"><span class="terminal-prompt">[WARNING]></span> <span class="highlight">ОСОБО ОПАСНЫЙ ОБЪЕКТ</span></div>
+            <div class="terminal-line"><span class="terminal-prompt">[DATA]></span> Объект: <span class="highlight">Клокер (Спецагент подавления)</span></div>
+            <ul class="specs-list">
+                <li><strong>Экипировка:</strong> Тактический костюм с усиленной защитой</li>
+                <li><strong>Основное оружие:</strong> MP5 с перцовыми зарядами</li>
+                <li><strong>Тактика:</strong> Быстрое перемещение, атака из засады</li>
+                <li><strong>Особая способность:</strong> Электрошокер</li>
+            </ul>
+        `,
+        heavy: `
+            <div class="terminal-line"><span class="terminal-prompt">[root@assets]></span> Загрузка данных о тяжёлых бойцах USM...</div>
+            <div class="terminal-line"><span class="terminal-prompt">[DATA]></span> Объект: <span class="highlight">Тяжёлые бойцы USM (Маршалы)</span></div>
+            <ul class="specs-list">
+                <li><strong>Броня:</strong> Композитная керамическая броня класса III+</li>
+                <li><strong>Вооружение:</strong> Автоматы M4 с подствольными гранатомётами</li>
+                <li><strong>Подготовка:</strong> Спецназ, тактика городского боя</li>
+                <li><strong>Задача:</strong> Штурм укреплённых позиций</li>
+            </ul>
+        `,
+        locks: `
+            <div class="terminal-line"><span class="terminal-prompt">[root@assets]></span> Загрузка данных о системе замков...</div>
+            <div class="terminal-line"><span class="terminal-prompt">[DATA]></span> Объект: <span class="highlight">5-кратная система защиты замков</span></div>
+            <ul class="specs-list">
+                <li><strong>Уровень 1:</strong> Механический замок высокой секретности</li>
+                <li><strong>Уровень 2:</strong> Электронный кодовый замок</li>
+                <li><strong>Уровень 3:</strong> Биометрический сканер</li>
+                <li><strong>Уровень 4:</strong> Сканер сетчатки глаза</li>
+                <li><strong>Уровень 5:</strong> Система распознавания голоса</li>
+            </ul>
+        `,
+        mp5: `
+            <div class="terminal-line"><span class="terminal-prompt">[root@assets]></span> Загрузка данных о MP5 с перцовыми зарядами...</div>
+            <div class="terminal-line"><span class="terminal-prompt">[DATA]></span> Объект: <span class="highlight">MP5K с перцовыми зарядами (для Клокеров)</span></div>
+            <ul class="specs-list">
+                <li><strong>База:</strong> HK MP5K</li>
+                <li><strong>Боеприпасы:</strong> 9mm перцовые гранулы</li>
+                <li><strong>Эффект:</strong> Сильное раздражение глаз и дыхательных путей</li>
+                <li><strong>Дальность:</strong> До 50 метров эффективно</li>
+            </ul>
+        `
+    };
 
-        loginBtn.addEventListener('click', handleLogin);
-        passwordInput.addEventListener('keypress', (e) => {
-            if (e.key === 'Enter') handleLogin();
-        });
-
-        // ===== ВРЕМЯ =====
-        function updateTime() {
-            const now = new Date();
-            realTime.textContent = now.toLocaleTimeString('ru-RU', { hour12: false });
-        }
-        updateTime();
-        setInterval(updateTime, 1000);
-
-        // ===== КОНТЕНТ ДЛЯ АКТИВОВ =====
-        const tabContent = {
-            shield: `
-                <div class="terminal-line"><span class="terminal-prompt">[root@assets]></span> Загрузка данных о Супер Щитах USM...</div>
-                <div class="terminal-line"><span class="terminal-prompt">[SYSTEM]></span> Доступ: <span class="highlight">РАЗРЕШЁН (УРОВЕНЬ 4)</span></div>
-                <div class="terminal-line"><span class="terminal-prompt">[DATA]></span> Объект: <span class="highlight">Супер щит USM (Маршалы)</span></div>
-                <ul class="specs-list">
-                    <li><strong>Баллистическая защита:</strong> Уровень IV (до 40 попаданий из автомата)</li>
-                    <li><strong>Смотровое окно:</strong> Бронестекло 50мм, пуленепробиваемое</li>
-                    <li><strong>Вес:</strong> 35 кг с тактическим снаряжением</li>
-                    <li><strong>Особенность:</strong> Встроенный фонарь-ослепитель и система подавления</li>
-                    <li><strong>На вооружении:</strong> Подразделения USM (Маршалы США)</li>
-                </ul>
-            `,
-            cloaker: `
-                <div class="terminal-line"><span class="terminal-prompt">[root@assets]></span> Загрузка данных о Клокерах...</div>
-                <div class="terminal-line"><span class="terminal-prompt">[WARNING]></span> <span class="highlight">ОСОБО ОПАСНЫЙ ОБЪЕКТ</span></div>
-                <div class="terminal-line"><span class="terminal-prompt">[DATA]></span> Объект: <span class="highlight">Клокер (Спецагент подавления)</span></div>
-                <ul class="specs-list">
-                    <li><strong>Экипировка:</strong> Тактический костюм с усиленной защитой</li>
-                    <li><strong>Основное оружие:</strong> MP5 с перцовыми зарядами</li>
-                    <li><strong>Тактика:</strong> Быстрое перемещение, атака из засады</li>
-                    <li><strong>Особая способность:</strong> Электрошокер</li>
-                </ul>
-            `,
-            heavy: `
-                <div class="terminal-line"><span class="terminal-prompt">[root@assets]></span> Загрузка данных о тяжёлых бойцах USM...</div>
-                <div class="terminal-line"><span class="terminal-prompt">[DATA]></span> Объект: <span class="highlight">Тяжёлые бойцы USM (Маршалы)</span></div>
-                <ul class="specs-list">
-                    <li><strong>Броня:</strong> Композитная керамическая броня класса III+</li>
-                    <li><strong>Вооружение:</strong> Автоматы M4 с подствольными гранатомётами</li>
-                    <li><strong>Подготовка:</strong> Спецназ, тактика городского боя</li>
-                    <li><strong>Задача:</strong> Штурм укреплённых позиций</li>
-                </ul>
-            `,
-            locks: `
-                <div class="terminal-line"><span class="terminal-prompt">[root@assets]></span> Загрузка данных о системе замков...</div>
-                <div class="terminal-line"><span class="terminal-prompt">[DATA]></span> Объект: <span class="highlight">5-кратная система защиты замков</span></div>
-                <ul class="specs-list">
-                    <li><strong>Уровень 1:</strong> Механический замок высокой секретности</li>
-                    <li><strong>Уровень 2:</strong> Электронный кодовый замок</li>
-                    <li><strong>Уровень 3:</strong> Биометрический сканер</li>
-                    <li><strong>Уровень 4:</strong> Сканер сетчатки глаза</li>
-                    <li><strong>Уровень 5:</strong> Система распознавания голоса</li>
-                </ul>
-            `,
-            mp5: `
-                <div class="terminal-line"><span class="terminal-prompt">[root@assets]></span> Загрузка данных о MP5 с перцовыми зарядами...</div>
-                <div class="terminal-line"><span class="terminal-prompt">[DATA]></span> Объект: <span class="highlight">MP5K с перцовыми зарядами (для Клокеров)</span></div>
-                <ul class="specs-list">
-                    <li><strong>База:</strong> HK MP5K</li>
-                    <li><strong>Боеприпасы:</strong> 9mm перцовые гранулы</li>
-                    <li><strong>Эффект:</strong> Сильное раздражение глаз и дыхательных путей</li>
-                    <li><strong>Дальность:</strong> До 50 метров эффективно</li>
-                </ul>
-            `
-        };
-
-        // ===== КОНТЕНТ ДЛЯ БАЗЫ ДАННЫХ =====
+                // ===== КОНТЕНТ ДЛЯ БАЗЫ ДАННЫХ =====
         const dbContent = {
             russian: `
                 <div class="db-section-title">🇷🇺 РУССКАЯ БРАТВА (Сан-Фиерро)</div>
@@ -826,7 +1016,7 @@
             corrupt: `
                 <div class="db-section-title">🎯 КОРРУПЦИЯ</div>
                 <div class="database-list">
-                    <div class="database-item"><div><div class="db-name">Иван Драго</div><div class="db-description">Мэр Сан-Фиерро</div></div><div class="db-role">РАССЛЕДОВАНИЕ</div></div>
+                    <div class="database-item"><div><div class="db-name">Иван Драго</div><div class="db-description">Мэр Сан-Фиерро</div></div><div class="db-role">ПРОВЕРКА</div></div>
                 </div>
             `,
             payday: `
@@ -837,275 +1027,197 @@
             `
         };
 
-        // ===== КОНТЕНТ ДЛЯ СЛУЖЕБНЫХ ЗАПИСОК =====
+        // ===== КОНТЕНТ ДЛЯ ЗАПИСОК =====
         const memosContent = `
             <div class="memo-item">
                 <div class="memo-title">Операция "Тихий омут"</div>
                 <div class="memo-date">12.03.2026</div>
-                <div class="memo-text">Замечено передвижение русской братвы в районе доков. Предположительно готовится крупная поставка.</div>
+                <div class="memo-text">Замечено передвижение русской братвы в районе доков.</div>
                 <div class="memo-classified">СОВ. СЕКРЕТНО</div>
             </div>
             <div class="memo-item">
                 <div class="memo-title">Наблюдение за Соколом</div>
                 <div class="memo-date">10.03.2026</div>
-                <div class="memo-text">Объект замечен на встрече с Михаилом Фаустином. Подтверждается связь с русской братвой.</div>
+                <div class="memo-text">Объект замечен на встрече с Михаилом Фаустином.</div>
                 <div class="memo-classified">СЕКРЕТНО</div>
-            </div>
-            <div class="memo-item">
-                <div class="memo-title">Мэр Иван Драго</div>
-                <div class="memo-date">05.03.2026</div>
-                <div class="memo-text">Поступила информация о возможных связях мэра с криминальными структурами. Требуется проверка.</div>
-                <div class="memo-classified">ДСП</div>
             </div>
         `;
 
+        // ===== КОНТЕНТ ДЛЯ ДЕЛ =====
+        const casesContent = `
+            <table class="cases-table">
+                <tr><th>Дело</th><th>Статус</th><th>Ответственный</th><th>Дата</th><th>Свидетели</th><th>Улики</th></tr>
+                <tr><td>Убийство в доках</td><td class="status-active">🟢 Активно</td><td>Регинальд</td><td>—</td><td><span class="witness-badge">3</span></td><td><span class="evidence-badge">гильза, отпечаток</span></td></tr>
+                <tr><td>Ограбление банка</td><td class="status-frozen">🟡 Заморожено</td><td>Майк Малас</td><td>—</td><td><span class="witness-badge">0</span></td><td><span class="evidence-badge">видео</span></td></tr>
+                <tr><td>Связи мэра с мафией</td><td class="status-active">🟢 Активно</td><td>Майк Малас</td><td>—</td><td><span class="witness-badge">СЕКРЕТНО</span></td><td><span class="evidence-badge">переписка</span></td></tr>
+                <tr><td>Разборка в Chinatown</td><td class="status-closed">🔵 Закрыто</td><td>Регинальд</td><td>05.03.2026</td><td><span class="witness-badge">2</span></td><td><span class="evidence-badge">оружие</span></td></tr>
+            </table>
+        `;
+
+        // ===== КОНТЕНТ ДЛЯ СОЦ. ОТДЕЛА =====
+        const socialContent = `
+            <div class="db-section-title">📚 КУРСЫ ДЛЯ НОВИЧКОВ</div>
+            <table class="social-table">
+                <tr><th>Игрок</th><th>Курс</th><th>Статус</th><th>Допуск ФБР</th></tr>
+                <tr><td>Иван Драго</td><td>Этикет</td><td><span class="course-badge">Пройден</span></td><td>—</td></tr>
+                <tr><td>Регинальд</td><td>Фин. грамотность</td><td><span class="course-badge">Пройден</span></td><td><span class="fbi-access">Есть</span></td></tr>
+                <tr><td>Сокол</td><td>Соц. поведение</td><td><span class="course-badge">В процессе</span></td><td>—</td></tr>
+            </table>
+        `;
+
+        // ===== ВХОД В СИСТЕМУ =====
+        function handleLogin() {
+            const password = passwordInput.value;
+            const user = users[password];
+
+            if (user) {
+                loginScreen.classList.add('hidden');
+                setTimeout(() => {
+                    loginScreen.style.display = 'none';
+                    desktop.style.display = 'flex';
+                }, 300);
+
+                if (user.role === 'guest') {
+                    userSession.innerHTML = `ПОСТОРОННИЙ (гостевой доступ)`;
+                } else {
+                    userSession.innerHTML = `<span>${user.name}</span> (${user.role})`;
+                }
+
+                // Показываем соц. отдел только для Глеба
+                if (user.name === 'Глеб Малыхин') {
+                    const socialIcon = document.getElementById('socialIcon');
+                    if (socialIcon) socialIcon.style.display = 'flex';
+                }
+
+                // Показываем видео только для Тимура
+                if (user.name === 'Регинальд Вон Равенхорст') {
+                    const timurIcon = document.getElementById('timurVideoIcon');
+                    if (timurIcon) timurIcon.style.display = 'flex';
+                }
+
+            } else {
+                loginError.innerText = 'Неверный пароль доступа';
+                passwordInput.value = '';
+                passwordInput.focus();
+            }
+        }
+
+        loginBtn.addEventListener('click', handleLogin);
+        passwordInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') handleLogin();
+        });
+
         // ===== ИНИЦИАЛИЗАЦИЯ ПРИЛОЖЕНИЙ =====
-        function initApps() {
-            // Активы агентства
+        window.addEventListener('load', function() {
+            // Элементы
             const assetsIcon = document.getElementById('assetsIcon');
-            const terminalWindow = document.getElementById('terminalWindow');
-            const closeBtn = document.getElementById('closeBtn');
-            const minimizeBtn = document.getElementById('minimizeBtn');
-            const maximizeBtn = document.getElementById('maximizeBtn');
-            const terminalTabs = document.querySelectorAll('#terminalWindow .terminal-tab');
-            const terminalContent = document.getElementById('terminalContent');
-            const header = document.getElementById('windowHeader');
-
-            if (assetsIcon) {
-                assetsIcon.addEventListener('click', () => {
-                    terminalWindow.style.display = 'flex';
-                    terminalContent.innerHTML = tabContent.shield;
-                });
-            }
-
-            // База данных
             const databaseIcon = document.getElementById('databaseIcon');
-            const databaseWindow = document.getElementById('databaseWindow');
-            const dbCloseBtn = document.getElementById('dbCloseBtn');
-            const dbMinimizeBtn = document.getElementById('dbMinimizeBtn');
-            const dbMaximizeBtn = document.getElementById('dbMaximizeBtn');
-            const dbTabs = document.querySelectorAll('#databaseWindow .terminal-tab');
-            const dbContentDiv = document.getElementById('databaseContent');
-            const dbHeader = document.getElementById('dbWindowHeader');
-
-            if (databaseIcon) {
-                databaseIcon.addEventListener('click', () => {
-                    databaseWindow.style.display = 'flex';
-                    dbContentDiv.innerHTML = dbContent.russian;
-                });
-            }
-
-            // Служебные записки
             const memosIcon = document.getElementById('memosIcon');
-            const memosWindow = document.getElementById('memosWindow');
-            const memosCloseBtn = document.getElementById('memosCloseBtn');
-            const memosMinimizeBtn = document.getElementById('memosMinimizeBtn');
-            const memosMaximizeBtn = document.getElementById('memosMaximizeBtn');
-            const memosContentDiv = document.getElementById('memosContent');
-            const memosHeader = document.getElementById('memosWindowHeader');
+            const casesIcon = document.getElementById('casesIcon');
+            const notepadIcon = document.getElementById('notepadIcon');
+            const fbimessageIcon = document.getElementById('fbimessageIcon');
+            const timurIcon = document.getElementById('timurVideoIcon');
 
-            if (memosIcon) {
-                memosIcon.addEventListener('click', () => {
-                    memosWindow.style.display = 'flex';
-                    memosContentDiv.innerHTML = memosContent;
+            const terminalWindow = document.getElementById('terminalWindow');
+            const databaseWindow = document.getElementById('databaseWindow');
+            const memosWindow = document.getElementById('memosWindow');
+            const casesWindow = document.getElementById('casesWindow');
+            const notepadWindow = document.getElementById('notepadWindow');
+            const fbimessageWindow = document.getElementById('fbimessageWindow');
+            const socialWindow = document.getElementById('socialWindow');
+            const timurWindow = document.getElementById('timurVideoWindow');
+
+            // Контент
+            const terminalContent = document.getElementById('terminalContent');
+            const databaseContent = document.getElementById('databaseContent');
+            const memosContentDiv = document.getElementById('memosContent');
+            const casesContentDiv = document.getElementById('casesContent');
+            const socialContentDiv = document.getElementById('socialContent');
+            const notepadText = document.getElementById('notepadText');
+
+            // Открытие окон
+            if (assetsIcon) assetsIcon.addEventListener('click', () => {
+                terminalWindow.style.display = 'flex';
+                terminalContent.innerHTML = tabContent.shield;
+            });
+
+            if (databaseIcon) databaseIcon.addEventListener('click', () => {
+                databaseWindow.style.display = 'flex';
+                databaseContent.innerHTML = dbContent.russian;
+            });
+
+            if (memosIcon) memosIcon.addEventListener('click', () => {
+                memosWindow.style.display = 'flex';
+                memosContentDiv.innerHTML = memosContent;
+            });
+
+            if (casesIcon) casesIcon.addEventListener('click', () => {
+                casesWindow.style.display = 'flex';
+                casesContentDiv.innerHTML = casesContent;
+            });
+
+            if (notepadIcon) notepadIcon.addEventListener('click', () => {
+                notepadWindow.style.display = 'flex';
+            });
+
+            if (fbimessageIcon) fbimessageIcon.addEventListener('click', () => {
+                fbimessageWindow.style.display = 'flex';
+            });
+
+            if (timurIcon) timurIcon.addEventListener('click', () => {
+                timurWindow.style.display = 'flex';
+            });
+
+            // Соц. отдел (только для Глеба, но окно нужно)
+            const socialIcon = document.getElementById('socialIcon');
+            if (socialIcon) {
+                socialIcon.addEventListener('click', () => {
+                    socialWindow.style.display = 'flex';
+                    socialContentDiv.innerHTML = socialContent;
                 });
             }
 
-            // Закрытие окон
-            if (closeBtn) closeBtn.addEventListener('click', () => terminalWindow.style.display = 'none');
-            if (minimizeBtn) minimizeBtn.addEventListener('click', () => terminalWindow.style.display = 'none');
-            if (dbCloseBtn) dbCloseBtn.addEventListener('click', () => databaseWindow.style.display = 'none');
-            if (dbMinimizeBtn) dbMinimizeBtn.addEventListener('click', () => databaseWindow.style.display = 'none');
-            if (memosCloseBtn) memosCloseBtn.addEventListener('click', () => memosWindow.style.display = 'none');
-            if (memosMinimizeBtn) memosMinimizeBtn.addEventListener('click', () => memosWindow.style.display = 'none');
-
-
-            // Разворачивание для активов
-let isMaximized = false;
-let prevSize = {};
-if (maximizeBtn) {
-    maximizeBtn.addEventListener('click', () => {
-        if (!isMaximized) {
-            prevSize = {
-                width: terminalWindow.style.width,
-                height: terminalWindow.style.height,
-                top: terminalWindow.style.top,
-                left: terminalWindow.style.left
+            // Закрытие окон (базовые)
+            const closeButtons = {
+                'closeBtn': terminalWindow,
+                'dbCloseBtn': databaseWindow,
+                'memosCloseBtn': memosWindow,
+                'casesCloseBtn': casesWindow,
+                'notepadCloseBtn': notepadWindow,
+                'fbimessageCloseBtn': fbimessageWindow,
+                'socialCloseBtn': socialWindow,
+                'timurVideoClose': timurWindow
             };
-            terminalWindow.style.width = '100%';
-            terminalWindow.style.height = 'calc(100% - 120px)';
-            terminalWindow.style.top = '60px';
-            terminalWindow.style.left = '0';
-            terminalWindow.classList.add('window-maximized');
-            maximizeBtn.textContent = '❐';
-        } else {
-            terminalWindow.style.width = prevSize.width || '900px';
-            terminalWindow.style.height = prevSize.height || '600px';
-            terminalWindow.style.top = prevSize.top || '80px';
-            terminalWindow.style.left = prevSize.left || '200px';
-            terminalWindow.classList.remove('window-maximized');
-            maximizeBtn.textContent = '□';
-        }
-        isMaximized = !isMaximized;
-    });
-}
 
-// Разворачивание для базы данных
-let isDbMaximized = false;
-let prevDbSize = {};
-if (dbMaximizeBtn) {
-    dbMaximizeBtn.addEventListener('click', () => {
-        if (!isDbMaximized) {
-            prevDbSize = {
-                width: databaseWindow.style.width,
-                height: databaseWindow.style.height,
-                top: databaseWindow.style.top,
-                left: databaseWindow.style.left
+            for (let [btnId, window] of Object.entries(closeButtons)) {
+                const btn = document.getElementById(btnId);
+                if (btn) btn.addEventListener('click', () => window.style.display = 'none');
+            }
+
+            // Минимизация (те же окна)
+            const minimizeButtons = {
+                'minimizeBtn': terminalWindow,
+                'dbMinimizeBtn': databaseWindow,
+                'memosMinimizeBtn': memosWindow,
+                'casesMinimizeBtn': casesWindow,
+                'notepadMinimizeBtn': notepadWindow,
+                'fbimessageMinimizeBtn': fbimessageWindow,
+                'socialMinimizeBtn': socialWindow,
+                'timurVideoMinimize': timurWindow
             };
-            databaseWindow.style.width = '100%';
-            databaseWindow.style.height = 'calc(100% - 120px)';
-            databaseWindow.style.top = '60px';
-            databaseWindow.style.left = '0';
-            databaseWindow.classList.add('window-maximized');
-            dbMaximizeBtn.textContent = '❐';
-        } else {
-            databaseWindow.style.width = prevDbSize.width || '900px';
-            databaseWindow.style.height = prevDbSize.height || '600px';
-            databaseWindow.style.top = prevDbSize.top || '80px';
-            databaseWindow.style.left = prevDbSize.left || '200px';
-            databaseWindow.classList.remove('window-maximized');
-            dbMaximizeBtn.textContent = '□';
-        }
-        isDbMaximized = !isDbMaximized;
-    });
-}
 
-// Разворачивание для записок
-let isMemosMaximized = false;
-let prevMemosSize = {};
-if (memosMaximizeBtn) {
-    memosMaximizeBtn.addEventListener('click', () => {
-        if (!isMemosMaximized) {
-            prevMemosSize = {
-                width: memosWindow.style.width,
-                height: memosWindow.style.height,
-                top: memosWindow.style.top,
-                left: memosWindow.style.left
-            };
-            memosWindow.style.width = '100%';
-            memosWindow.style.height = 'calc(100% - 120px)';
-            memosWindow.style.top = '60px';
-            memosWindow.style.left = '0';
-            memosWindow.classList.add('window-maximized');
-            memosMaximizeBtn.textContent = '❐';
-        } else {
-            memosWindow.style.width = prevMemosSize.width || '900px';
-            memosWindow.style.height = prevMemosSize.height || '600px';
-            memosWindow.style.top = prevMemosSize.top || '80px';
-            memosWindow.style.left = prevMemosSize.left || '200px';
-            memosWindow.classList.remove('window-maximized');
-            memosMaximizeBtn.textContent = '□';
-        }
-        isMemosMaximized = !isMemosMaximized;
-    });
-}
-
-            // Переключение вкладок активов
-            terminalTabs.forEach(tab => {
-                tab.addEventListener('click', function() {
-                    terminalTabs.forEach(t => t.classList.remove('active'));
-                    this.classList.add('active');
-                    terminalContent.innerHTML = tabContent[this.dataset.tab];
-                });
-            });
-
-            // Переключение вкладок базы данных
-            dbTabs.forEach(tab => {
-                tab.addEventListener('click', function() {
-                    dbTabs.forEach(t => t.classList.remove('active'));
-                    this.classList.add('active');
-                    dbContentDiv.innerHTML = dbContent[this.dataset.db];
-                });
-            });
+            for (let [btnId, window] of Object.entries(minimizeButtons)) {
+                const btn = document.getElementById(btnId);
+                if (btn) btn.addEventListener('click', () => window.style.display = 'none');
+            }
 
             // Заглушки для остальных иконок
-            document.querySelectorAll('.desktop-icon:not(#assetsIcon):not(#databaseIcon):not(#memosIcon)').forEach(icon => {
+            document.querySelectorAll('.desktop-icon:not(#assetsIcon):not(#databaseIcon):not(#memosIcon):not(#casesIcon):not(#notepadIcon):not(#fbimessageIcon):not(#socialIcon):not(#timurVideoIcon)').forEach(icon => {
                 icon.addEventListener('click', () => {
                     alert('Приложение будет доступно в следующей версии SAnet.OS');
                 });
             });
-        }
-            // Видео для Тимура
-const timurIcon = document.getElementById('timurVideoIcon');
-const timurWindow = document.getElementById('timurVideoWindow');
-const timurClose = document.getElementById('timurVideoClose');
-const timurMinimize = document.getElementById('timurVideoMinimize');
-const timurMaximize = document.getElementById('timurVideoMaximize');
-
-if (timurIcon) {
-    timurIcon.addEventListener('click', () => {
-        timurWindow.style.display = 'flex';
-    });
-}
-
-if (timurClose) {
-    timurClose.addEventListener('click', () => {
-        timurWindow.style.display = 'none';
-    });
-}
-
-if (timurMinimize) {
-    timurMinimize.addEventListener('click', () => {
-        timurWindow.style.display = 'none';
-    });
-}
-
-// Разворачивание для видео
-let isTimurMaximized = false;
-let prevTimurSize = {};
-if (timurMaximize) {
-    timurMaximize.addEventListener('click', () => {
-        if (!isTimurMaximized) {
-            prevTimurSize = {
-                width: timurWindow.style.width,
-                height: timurWindow.style.height,
-                top: timurWindow.style.top,
-                left: timurWindow.style.left
-            };
-            timurWindow.style.width = '100%';
-            timurWindow.style.height = 'calc(100% - 120px)';
-            timurWindow.style.top = '60px';
-            timurWindow.style.left = '0';
-            timurWindow.classList.add('window-maximized');
-            timurMaximize.textContent = '❐';
-        } else {
-            timurWindow.style.width = prevTimurSize.width || '900px';
-            timurWindow.style.height = prevTimurSize.height || '600px';
-            timurWindow.style.top = prevTimurSize.top || '80px';
-            timurWindow.style.left = prevTimurSize.left || '200px';
-            timurWindow.classList.remove('window-maximized');
-            timurMaximize.textContent = '□';
-        }
-        isTimurMaximized = !isTimurMaximized;
-    });
-            }
-
-        // Запускаем после загрузки
-        window.addEventListener('load', initApps);
-
-            // Показываем иконку только для Тимура (Регинальда)
-if (user.name === 'Регинальд Вон Равенхорст') {
-    document.getElementById('timurVideoIcon').style.display = 'flex';
-}
-
-// Логика открытия видео
-const timurIcon = document.getElementById('timurVideoIcon');
-const timurWindow = document.getElementById('timurVideoWindow');
-if (timurIcon) {
-    timurIcon.addEventListener('click', () => {
-        timurWindow.style.display = 'flex';
-    });
-}
+        });
     </script>
 </body>
-    </html>
+</html>
