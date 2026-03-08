@@ -1156,8 +1156,18 @@
             </table>
         `;
 
-
-        // ===== КОНТЕНТ ДЛЯ АГЕНТОВ =====
+        // ===== КОНТЕНТ ДЛЯ СОЦ. ОТДЕЛА =====
+        const socialContent = `
+            <div class="db-section-title">📚 КУРСЫ ДЛЯ НОВИЧКОВ</div>
+            <table class="social-table">
+                <tr><th>Игрок</th><th>Курс</th><th>Статус</th><th>Допуск ФБР</th></tr>
+                <tr><td>Иван Драго</td><td>Этикет</td><td><span class="course-badge">Пройден</span></td><td>—</td></tr>
+                <tr><td>Регинальд</td><td>Фин. грамотность</td><td><span class="course-badge">Пройден</span></td><td><span class="fbi-access">Есть</span></td></tr>
+                <tr><td>Сокол</td><td>Соц. поведение</td><td><span class="course-badge">В процессе</span></td><td>—</td></tr>
+            </table>
+        `;
+        
+// ===== КОНТЕНТ ДЛЯ АГЕНТОВ =====
 const agentsContent = `
     <div class="agents-container">
         <!-- Регинальд -->
@@ -1211,46 +1221,6 @@ const agentsContent = `
     </div>
 `;
 
-// В инициализации приложений добавь:
-const agentsIcon = document.getElementById('agentsIcon');
-const agentsWindow = document.getElementById('agentsWindow');
-const agentsContentDiv = document.getElementById('agentsContent');
-const agentsClose = document.getElementById('agentsCloseBtn');
-const agentsMinimize = document.getElementById('agentsMinimizeBtn');
-const agentsMaximize = document.getElementById('agentsMaximizeBtn');
-
-if (agentsIcon) {
-    agentsIcon.addEventListener('click', () => {
-        agentsWindow.style.display = 'flex';
-        agentsContentDiv.innerHTML = agentsContent;
-    });
-}
-
-if (agentsClose) {
-    agentsClose.addEventListener('click', () => {
-        agentsWindow.style.display = 'none';
-    });
-}
-
-if (agentsMinimize) {
-    agentsMinimize.addEventListener('click', () => {
-        agentsWindow.style.display = 'none';
-    });
-}
-
-// Добавь в функцию setupMaximize для agentsMaximizeBtn
-
-        // ===== КОНТЕНТ ДЛЯ СОЦ. ОТДЕЛА =====
-        const socialContent = `
-            <div class="db-section-title">📚 КУРСЫ ДЛЯ НОВИЧКОВ</div>
-            <table class="social-table">
-                <tr><th>Игрок</th><th>Курс</th><th>Статус</th><th>Допуск ФБР</th></tr>
-                <tr><td>Иван Драго</td><td>Этикет</td><td><span class="course-badge">Пройден</span></td><td>—</td></tr>
-                <tr><td>Регинальд</td><td>Фин. грамотность</td><td><span class="course-badge">Пройден</span></td><td><span class="fbi-access">Есть</span></td></tr>
-                <tr><td>Сокол</td><td>Соц. поведение</td><td><span class="course-badge">В процессе</span></td><td>—</td></tr>
-            </table>
-        `;
-        
 
         // ===== ВХОД В СИСТЕМУ =====
         function handleLogin() {
@@ -1423,6 +1393,32 @@ dbTabs.forEach(tab => {
         this.classList.add('active');
         databaseContent.innerHTML = dbContent[this.dataset.db];
     });
+
+    // ===== АГЕНТЫ =====
+const agentsIcon = document.getElementById('agentsIcon');
+const agentsWindow = document.getElementById('agentsWindow');
+const agentsContentDiv = document.getElementById('agentsContent');
+const agentsClose = document.getElementById('agentsCloseBtn');
+const agentsMinimize = document.getElementById('agentsMinimizeBtn');
+
+if (agentsIcon) {
+    agentsIcon.addEventListener('click', () => {
+        agentsWindow.style.display = 'flex';
+        agentsContentDiv.innerHTML = agentsContent;
+    });
+}
+
+if (agentsClose) {
+    agentsClose.addEventListener('click', () => {
+        agentsWindow.style.display = 'none';
+    });
+}
+
+if (agentsMinimize) {
+    agentsMinimize.addEventListener('click', () => {
+        agentsWindow.style.display = 'none';
+    });
+}
 });
 
 // ===== РАЗВОРАЧИВАНИЕ ДЛЯ ВСЕХ ОКОН =====
@@ -1468,6 +1464,7 @@ setupMaximize('notepadMaximizeBtn', notepadWindow);
 setupMaximize('fbimessageMaximizeBtn', fbimessageWindow);
 setupMaximize('socialMaximizeBtn', socialWindow);
 setupMaximize('timurVideoMaximize', timurWindow);
+setupMaximize('agentsMaximizeBtn', agentsWindow);            
         });
     </script>
 </body>
