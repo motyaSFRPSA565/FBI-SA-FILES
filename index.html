@@ -632,6 +632,92 @@
             background: #dbb42c;
             transform: scale(1.05);
         }
+
+
+        /* ===== КАРТОЧКИ АГЕНТОВ ===== */
+.agents-container {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    padding: 10px;
+}
+
+.agent-card {
+    background: #0f1a2a;
+    border: 2px solid #2a3f5a;
+    border-radius: 15px;
+    padding: 25px;
+    display: flex;
+    gap: 25px;
+    transition: 0.2s;
+}
+
+.agent-card:hover {
+    border-color: #c49e3f;
+    box-shadow: 0 0 20px rgba(196, 158, 63, 0.2);
+}
+
+.agent-photo {
+    width: 120px;
+    height: 150px;
+    background: #1a2a3f;
+    border: 3px solid #c49e3f;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 48px;
+    color: #c49e3f;
+    overflow: hidden;
+}
+
+.agent-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.agent-info {
+    flex: 1;
+}
+
+.agent-name {
+    font-size: 24px;
+    color: #c49e3f;
+    font-weight: bold;
+    margin-bottom: 5px;
+    border-bottom: 2px solid #c49e3f;
+    padding-bottom: 8px;
+}
+
+.agent-detail {
+    margin-top: 15px;
+    color: #e0e5f0;
+    line-height: 1.6;
+}
+
+.agent-detail-item {
+    margin-bottom: 10px;
+    padding-left: 15px;
+    border-left: 3px solid #c49e3f;
+}
+
+.agent-detail-label {
+    color: #c49e3f;
+    font-weight: 600;
+    margin-right: 10px;
+}
+
+.agent-badge {
+    display: inline-block;
+    background: #1a2a3f;
+    color: #c49e3f;
+    padding: 3px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    border: 1px solid #c49e3f;
+    margin-right: 8px;
+        }
     </style>
 </head>
 <body>
@@ -893,6 +979,23 @@
         </div>
     </div>
 
+        <!-- ОКНО АГЕНТОВ -->
+        <div class="app-window" id="agentsWindow" style="display: none;">
+            <div class="window-header" id="agentsWindowHeader">
+                <div class="window-title">
+                    <span>👥</span>
+                    <span>Агенты ФБР — Личные дела</span>
+                </div>
+                <div class="window-controls">
+                    <span id="agentsMinimizeBtn">─</span>
+                    <span id="agentsMaximizeBtn">□</span>
+                    <span id="agentsCloseBtn">✕</span>
+                </div>
+            </div>
+            <div class="terminal-content" id="agentsContent"></div>
+        </div>
+    </div>
+
     <!-- НИЖНЯЯ ПАНЕЛЬ -->
     <div class="bottom-bar">
         <div class="bottom-left">
@@ -1054,6 +1157,90 @@
             </table>
         `;
 
+
+        // ===== КОНТЕНТ ДЛЯ АГЕНТОВ =====
+const agentsContent = `
+    <div class="agents-container">
+        <!-- Регинальд -->
+        <div class="agent-card">
+            <div class="agent-photo">
+                <img src="Reginald.jpg" alt="Регинальд" onerror="this.style.display='none'; this.parentNode.innerHTML='👤';">
+            </div>
+            <div class="agent-info">
+                <div class="agent-name">Регинальд Вон Равенхорст</div>
+                <div class="agent-detail">
+                    <div class="agent-detail-item"><span class="agent-detail-label">Родился:</span> 5 ноября 1990</div>
+                    <div class="agent-detail-item"><span class="agent-detail-label">На службе:</span> с 2025 года</div>
+                    <div class="agent-detail-item"><span class="agent-detail-label">Достижения:</span> Предотвратил ограбление мирового банка (2025)</div>
+                    <div class="agent-detail-item"><span class="agent-detail-label">Должность:</span> Спецагент по крупным делам (с 2026)</div>
+                    <div class="agent-detail-item"><span class="agent-detail-label">Характеристика:</span> Глаза и уши ФБР</div>
+                </div>
+                <div><span class="agent-badge">СПЕЦАГЕНТ</span><span class="agent-badge">ПЕРЕХВАТ</span></div>
+            </div>
+        </div>
+
+        <!-- Майк Малас -->
+        <div class="agent-card">
+            <div class="agent-photo">
+                <img src="Malas .jpg" alt="Майк Малас" onerror="this.style.display='none'; this.parentNode.innerHTML='👤';">
+            </div>
+            <div class="agent-info">
+                <div class="agent-name">Майк Малас</div>
+                <div class="agent-detail">
+                    <div class="agent-detail-item"><span class="agent-detail-label">Родился:</span> 5 марта 1993</div>
+                    <div class="agent-detail-item"><span class="agent-detail-label">На службе:</span> с 2023 года</div>
+                    <div class="agent-detail-item"><span class="agent-detail-label">Достижения:</span> Предотвратил восстание, ликвидация ЧВК</div>
+                    <div class="agent-detail-item"><span class="agent-detail-label">Должность:</span> Директор ФБР (с 2025)</div>
+                </div>
+                <div><span class="agent-badge">ДИРЕКТОР</span><span class="agent-badge">ОПЕРАЦИИ</span></div>
+            </div>
+        </div>
+
+        <!-- Декстер Морган -->
+        <div class="agent-card">
+            <div class="agent-photo">👤</div>
+            <div class="agent-info">
+                <div class="agent-name">Декстер Морган</div>
+                <div class="agent-detail">
+                    <div class="agent-detail-item"><span class="agent-detail-label">Специалист:</span> Криминалистика, анализ крови</div>
+                    <div class="agent-detail-item"><span class="agent-detail-label">Особенность:</span> Работает с уликами, двойная жизнь</div>
+                    <div class="agent-detail-item"><span class="agent-detail-label">Статус:</span> Сотрудник отдела убийств</div>
+                </div>
+                <div><span class="agent-badge">КРИМИНАЛИСТ</span><span class="agent-badge">НОЧНОЙ ОХОТНИК</span></div>
+            </div>
+        </div>
+    </div>
+`;
+
+// В инициализации приложений добавь:
+const agentsIcon = document.getElementById('agentsIcon');
+const agentsWindow = document.getElementById('agentsWindow');
+const agentsContentDiv = document.getElementById('agentsContent');
+const agentsClose = document.getElementById('agentsCloseBtn');
+const agentsMinimize = document.getElementById('agentsMinimizeBtn');
+const agentsMaximize = document.getElementById('agentsMaximizeBtn');
+
+if (agentsIcon) {
+    agentsIcon.addEventListener('click', () => {
+        agentsWindow.style.display = 'flex';
+        agentsContentDiv.innerHTML = agentsContent;
+    });
+}
+
+if (agentsClose) {
+    agentsClose.addEventListener('click', () => {
+        agentsWindow.style.display = 'none';
+    });
+}
+
+if (agentsMinimize) {
+    agentsMinimize.addEventListener('click', () => {
+        agentsWindow.style.display = 'none';
+    });
+}
+
+// Добавь в функцию setupMaximize для agentsMaximizeBtn
+
         // ===== КОНТЕНТ ДЛЯ СОЦ. ОТДЕЛА =====
         const socialContent = `
             <div class="db-section-title">📚 КУРСЫ ДЛЯ НОВИЧКОВ</div>
@@ -1064,6 +1251,7 @@
                 <tr><td>Сокол</td><td>Соц. поведение</td><td><span class="course-badge">В процессе</span></td><td>—</td></tr>
             </table>
         `;
+        
 
         // ===== ВХОД В СИСТЕМУ =====
         function handleLogin() {
